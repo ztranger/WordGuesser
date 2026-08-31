@@ -1,0 +1,42 @@
+# Nature · Hard
+# One word per line. Lines starting with # are ignored.
+gorge
+grotto
+plain
+archipelago
+atoll
+boulder
+silt
+magma
+moraine
+firn
+karst
+stalactite
+stalagmite
+sinkhole
+estuary
+lagoon
+mangrove
+savanna
+prairie
+chaparral
+taiga moss
+permafrost
+caldera
+fumarole
+solfatara
+tsunami
+whirlpool
+monsoon
+sirocco
+mistral
+chinook
+penumbra
+equinox
+solstice
+zenith
+nadir
+biosphere
+ecosystem
+plankton
+humus

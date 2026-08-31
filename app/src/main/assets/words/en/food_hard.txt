@@ -1,0 +1,52 @@
+# Food · Hard
+# One word per line. Lines starting with # are ignored.
+tom yum
+paella
+goulash
+cheburek
+napoleon cake
+compote
+kefir
+cottage cheese
+mussel
+squid
+asparagus
+olives
+pickle
+soy sauce
+olive oil
+mustard
+mayonnaise
+cinnamon
+vanilla
+ginger
+marmalade
+quinoa
+couscous
+tabbouleh
+ratatouille
+gazpacho
+pho
+kimchi
+miso soup
+tempura
+wasabi
+truffle
+foie gras
+oyster
+anchovy
+saffron
+cardamom
+turmeric
+wasabi peas
+baklava
+halva
+panna cotta
+creme brulee
+profiterole
+quiche
+fondue
+ceviche
+tartare
+carpaccio
+tzatziki

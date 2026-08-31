@@ -1,0 +1,52 @@
+# Transport
+# One word per line. Lines starting with # are ignored.
+car
+bus
+tram
+trolleybus
+metro
+train
+airplane
+helicopter
+ship
+boat
+bicycle
+motorcycle
+scooter
+taxi
+truck
+ambulance
+fire truck
+police car
+tractor
+tank
+submarine
+rocket
+hot air balloon
+yacht
+ferry
+cable car
+escalator
+elevator
+skateboard
+roller skates
+sleigh
+carriage
+wagon
+hovercraft
+segway
+monorail
+funicular
+icebreaker
+tanker
+barge
+canoe
+kayak
+raft
+glider
+hang glider
+paraglider
+spaceship
+space shuttle
+drone
+tuk-tuk

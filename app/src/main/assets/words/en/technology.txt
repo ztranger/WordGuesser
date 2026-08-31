@@ -1,0 +1,52 @@
+# Technology
+# One word per line. Lines starting with # are ignored.
+smartphone
+internet
+Wi-Fi
+password
+email
+website
+app
+robot
+drone
+artificial intelligence
+chatbot
+QR code
+USB
+Bluetooth
+cloud
+server
+database
+algorithm
+bug
+update
+download
+upload
+screenshot
+emoji
+hashtag
+selfie
+livestream
+podcast
+virtual reality
+augmented reality
+3D printer
+smartwatch
+smart home
+satellite
+GPS
+processor
+graphics card
+hard drive
+SSD
+RAM
+firewall
+antivirus
+encryption
+blockchain
+bitcoin
+neural network
+machine learning
+quantum computer
+nanotechnology
+biometrics

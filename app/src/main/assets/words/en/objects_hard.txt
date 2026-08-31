@@ -1,0 +1,47 @@
+# Objects · Hard
+# One word per line. Lines starting with # are ignored.
+hourglass
+metronome
+abacus
+sextant
+barometer
+anemometer
+protractor
+caliper
+vice
+anvil
+chisel
+plane tool
+thimble
+loom
+spinning wheel
+gramophone
+typewriter
+fax machine
+pager
+walkie-talkie
+periscope
+kaleidoscope
+stethoscope
+defibrillator
+syringe
+scalpel
+crucible
+retort
+bunsen burner
+tuning fork
+easel
+palette
+chalice
+candelabra
+sundial
+weather vane
+plumb bob
+spirit level
+mortar
+pestle
+abacus beads
+inkwell
+blotter
+letter opener
+paperweight

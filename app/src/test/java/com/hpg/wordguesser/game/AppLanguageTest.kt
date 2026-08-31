@@ -1,6 +1,8 @@
 package com.hpg.wordguesser.game
 
+import com.hpg.wordguesser.data.WordRepository
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertNotEquals
 import org.junit.Test
 import java.util.Locale
 
@@ -44,6 +46,8 @@ class GameStringsTest {
     fun englishCopyAndCategories() {
         val strings = GameStrings.forLanguage(AppLanguage.English)
         assertEquals("Animals", strings.categoryTitle("animals"))
+        assertEquals("Animals · Easy", strings.categoryTitle("animals", WordDifficulty.Easy))
+        assertEquals("Easy", strings.difficultyLabel(WordDifficulty.Easy))
         assertEquals("Start", strings.start)
         assertEquals("Team 1", strings.teamName(1))
         assertEquals("+1 point this round", strings.roundPoints(1))
@@ -59,5 +63,20 @@ class GameStringsTest {
         assertEquals("+5 очков за раунд", strings.roundPoints(5))
         assertEquals("+21 очко за раунд", strings.roundPoints(21))
         assertEquals("До победы: 20 слов", strings.playUntilWords(20))
+        assertEquals("Животные · Простые", strings.categoryTitle("animals", WordDifficulty.Easy))
+        assertEquals("Сложные", strings.difficultyLabel(WordDifficulty.Hard))
+        assertEquals("Города и страны", strings.topicTitle("cities"))
+    }
+
+    @Test
+    fun everyRegisteredTopicHasLocalizedTitles() {
+        val en = GameStrings.forLanguage(AppLanguage.English)
+        val ru = GameStrings.forLanguage(AppLanguage.Russian)
+        WordRepository.definitions.forEach { definition ->
+            assertNotEquals(definition.topicId, en.topicTitle(definition.topicId))
+            assertNotEquals(definition.topicId, ru.topicTitle(definition.topicId))
+        }
+        assertEquals(42, WordRepository.definitions.size)
+        assertEquals(42, WordRepository.knownCategoryIds.size)
     }
 }

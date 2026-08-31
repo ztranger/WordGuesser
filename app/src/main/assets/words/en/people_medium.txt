@@ -1,0 +1,41 @@
+# Famous people · Medium
+# One word per line. Lines starting with # are ignored.
+Tolstoy
+Dostoevsky
+Chekhov
+Gogol
+Yesenin
+Mayakovsky
+Tsvetaeva
+Akhmatova
+Gorky
+Bulgakov
+Darwin
+Tesla
+Edison
+Curie
+Hawking
+Galileo
+Copernicus
+Churchill
+Gandhi
+Mandela
+Lincoln
+Washington
+Kennedy
+Martin Luther King
+Mother Teresa
+Joan of Arc
+Robin Hood
+King Arthur
+Merlin
+Dracula
+Frankenstein
+Darth Vader
+Yoda
+Hermione
+Frodo
+Gandalf
+Wonder Woman
+Black Widow
+Iron Man

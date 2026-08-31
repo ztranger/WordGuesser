@@ -1,0 +1,48 @@
+# Animals · Hard
+# One word per line. Lines starting with # are ignored.
+bullfinch
+titmouse
+hammerhead shark
+seahorse
+mantis
+grasshopper
+firefly
+echidna
+platypus
+anteater
+orangutan
+capybara
+alpaca
+yak
+jackal
+mongoose
+mink
+iguana
+narwhal
+axolotl
+okapi
+tapir
+lemur
+meerkat
+wombat
+pangolin
+armadillo
+manatee
+dugong
+komodo dragon
+anaconda
+viper
+cobra
+python
+albatross
+condor
+kiwi
+toucan
+lyrebird
+wolverine
+sable
+marten
+chinchilla
+porcupine
+bison
+ibex

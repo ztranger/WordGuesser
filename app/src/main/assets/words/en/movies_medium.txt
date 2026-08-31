@@ -1,0 +1,42 @@
+# Movies & TV · Medium
+# One word per line. Lines starting with # are ignored.
+The Lord of the Rings
+The Matrix
+Inception
+Interstellar
+Avatar
+Gladiator
+Forrest Gump
+The Godfather
+Fight Club
+James Bond
+Indiana Jones
+Game of Thrones
+Stranger Things
+The Witcher
+Sherlock
+Breaking Bad
+The Office
+The Mandalorian
+Black Mirror
+Squid Game
+Star Trek
+Alien
+The Terminator
+The Hobbit
+Twilight
+The Hunger Games
+It
+The Shining
+Wonder Woman
+Deadpool
+Guardians of the Galaxy
+Naruto
+One Piece
+Spirited Away
+Wednesday
+Barbie
+Oppenheimer
+The Dark Knight
+Pulp Fiction
+Top Gun Maverick

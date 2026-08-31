@@ -162,6 +162,8 @@ fun SetupScreen(
                     countLabel = strings.wordCountLabel(category.wordCount),
                     selected = category.id in state.selectedCategoryIds,
                     onClick = { onToggleCategory(category.id) },
+                    difficultyLabel = category.difficultyLabel,
+                    difficulty = category.difficulty,
                     modifier = Modifier.fillMaxWidth()
                 )
             }

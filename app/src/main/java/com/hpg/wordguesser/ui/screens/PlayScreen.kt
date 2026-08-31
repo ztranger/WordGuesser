@@ -30,6 +30,7 @@ import androidx.compose.ui.platform.LocalHapticFeedback
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.hpg.wordguesser.game.GameUiState
@@ -115,7 +116,10 @@ fun PlayScreen(
                         text = state.currentCategoryTitle.uppercase(),
                         style = MaterialTheme.typography.labelLarge,
                         color = Sunset,
-                        letterSpacing = 1.6.sp
+                        letterSpacing = 1.2.sp,
+                        textAlign = TextAlign.Center,
+                        maxLines = 2,
+                        overflow = TextOverflow.Ellipsis
                     )
                     Spacer(Modifier.height(16.dp))
                 }

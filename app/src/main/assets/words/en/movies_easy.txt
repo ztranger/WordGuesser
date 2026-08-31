@@ -1,0 +1,42 @@
+# Movies & TV · Easy
+# One word per line. Lines starting with # are ignored.
+Harry Potter
+Star Wars
+Spider-Man
+Batman
+Superman
+The Lion King
+Frozen
+Shrek
+Toy Story
+Titanic
+Home Alone
+The Avengers
+Iron Man
+Hulk
+Finding Nemo
+Cars
+Aladdin
+Cinderella
+Snow White
+Moana
+SpongeBob SquarePants
+The Simpsons
+Friends
+Tom and Jerry
+Pirates of the Caribbean
+Jurassic Park
+King Kong
+Godzilla
+Joker
+Thor
+Captain America
+The Little Mermaid
+Beauty and the Beast
+Mulan
+Dumbo
+Bambi
+Transformers
+Jaws
+Back to the Future
+Ghostbusters

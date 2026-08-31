@@ -1,0 +1,42 @@
+# Hobbies
+# One word per line. Lines starting with # are ignored.
+drawing
+painting
+photography
+reading
+writing
+cooking
+baking
+gardening
+fishing
+hiking
+camping
+collecting stamps
+collecting coins
+knitting
+embroidery
+origami
+modeling
+chess
+puzzles
+crosswords
+video games
+board games
+Lego
+singing
+playing guitar
+dancing
+yoga
+running
+cycling
+swimming
+skiing
+skating
+blogging
+vlogging
+podcasting
+travel
+languages
+magic tricks
+juggling
+astronomy

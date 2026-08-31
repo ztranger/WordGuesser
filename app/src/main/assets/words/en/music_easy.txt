@@ -1,0 +1,42 @@
+# Music · Easy
+# One word per line. Lines starting with # are ignored.
+song
+singer
+guitar
+piano
+drum
+violin
+microphone
+concert
+karaoke
+radio
+headphones
+playlist
+hit
+chorus
+melody
+rhythm
+note
+album
+clip
+dance
+rock
+pop
+rap
+jazz
+classical music
+lullaby
+anthem
+DJ
+orchestra
+choir
+flute
+trumpet
+accordion
+harmonica
+The Beatles
+Michael Jackson
+Elvis Presley
+Mozart
+Beethoven
+Tchaikovsky

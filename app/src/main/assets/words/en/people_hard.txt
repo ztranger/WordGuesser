@@ -1,0 +1,41 @@
+# Famous people · Hard
+# One word per line. Lines starting with # are ignored.
+Mandelstam
+Brodsky
+Pasternak
+Solzhenitsyn
+Nabokov
+Turgenev
+Goncharov
+Leskov
+Kuprin
+Bunin
+Faraday
+Maxwell
+Bohr
+Planck
+Feynman
+Mendel
+Pavlov
+Sechenov
+Vernadsky
+Korolev
+Tsiolkovsky
+Kurchatov
+Sakharov
+Landau
+Kapitsa
+Machiavelli
+Confucius
+Socrates
+Aristotle
+Plato
+Hypatia
+Hatshepsut
+Ashurbanipal
+Hammurabi
+Gilgamesh
+Scheherazade
+Rumi
+Omar Khayyam
+Avicenna

@@ -1,0 +1,42 @@
+# Cities & countries · Medium
+# One word per line. Lines starting with # are ignored.
+Barcelona
+Lisbon
+Athens
+Stockholm
+Oslo
+Helsinki
+Copenhagen
+Budapest
+Bucharest
+Sofia
+Belgrade
+Zagreb
+Dublin
+Edinburgh
+Venice
+Florence
+Milan
+Naples
+Munich
+Hamburg
+Krakow
+Gdansk
+Kazan
+Sochi
+Novosibirsk
+Vladivostok
+Seoul
+Bangkok
+Singapore
+Hong Kong
+Mumbai
+Delhi
+Cape Town
+Nairobi
+Buenos Aires
+Lima
+Santiago
+Montreal
+Vancouver
+San Francisco

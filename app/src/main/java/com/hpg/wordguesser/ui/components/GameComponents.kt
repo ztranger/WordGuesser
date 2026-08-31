@@ -25,10 +25,14 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.hpg.wordguesser.game.WordDifficulty
 import com.hpg.wordguesser.ui.theme.Cream
+import com.hpg.wordguesser.ui.theme.GuessGreen
 import com.hpg.wordguesser.ui.theme.Ink
 import com.hpg.wordguesser.ui.theme.InkCard
+import com.hpg.wordguesser.ui.theme.SkipRose
 import com.hpg.wordguesser.ui.theme.Sunset
 
 @Composable
@@ -127,32 +131,51 @@ fun CategoryCard(
     countLabel: String,
     selected: Boolean,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    difficultyLabel: String? = null,
+    difficulty: WordDifficulty? = null
 ) {
     val border = if (selected) Sunset else Color.Transparent
     val background by animateColorAsState(
         if (selected) Sunset.copy(alpha = 0.18f) else InkCard,
         label = "catBg"
     )
+    val difficultyColor = when (difficulty) {
+        WordDifficulty.Easy -> GuessGreen
+        WordDifficulty.Medium -> Sunset
+        WordDifficulty.Hard -> SkipRose
+        null -> Cream.copy(alpha = 0.7f)
+    }
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(18.dp))
             .background(background)
             .border(2.dp, border, RoundedCornerShape(18.dp))
             .clickable(onClick = onClick)
-            .padding(14.dp)
+            .padding(horizontal = 14.dp, vertical = 12.dp)
     ) {
         Text(
             text = title,
-            style = MaterialTheme.typography.titleLarge,
+            style = MaterialTheme.typography.titleMedium,
             color = Cream,
-            fontWeight = FontWeight.SemiBold
+            fontWeight = FontWeight.SemiBold,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis
         )
+        if (!difficultyLabel.isNullOrBlank()) {
+            Text(
+                text = difficultyLabel,
+                style = MaterialTheme.typography.labelLarge,
+                color = difficultyColor,
+                fontWeight = FontWeight.Bold,
+                modifier = Modifier.padding(top = 4.dp)
+            )
+        }
         Text(
             text = countLabel,
             style = MaterialTheme.typography.bodyMedium,
             color = Cream.copy(alpha = 0.7f),
-            modifier = Modifier.padding(top = 4.dp)
+            modifier = Modifier.padding(top = 2.dp)
         )
     }
 }

@@ -1,0 +1,42 @@
+# Fairy tales
+# One word per line. Lines starting with # are ignored.
+Kolobok
+Turnip
+Teremok
+Ryaba the Hen
+Geese-Swans
+Morozko
+The Snow Maiden
+Vasilisa the Beautiful
+Ivan Tsarevich
+Koschei the Deathless
+Baba Yaga
+Firebird
+The Little Humpbacked Horse
+Cinderella
+Snow White
+Sleeping Beauty
+Little Red Riding Hood
+The Three Little Pigs
+Hansel and Gretel
+Rapunzel
+The Ugly Duckling
+The Little Mermaid
+Thumbelina
+The Princess and the Pea
+Puss in Boots
+Aladdin
+Ali Baba
+Sinbad
+Pinocchio
+Peter Pan
+Alice in Wonderland
+Wizard of Oz
+Winnie the Pooh
+Carlson
+Cheburashka
+Gena the Crocodile
+Shapoklyak
+Dunno
+Old Man Hottabych
+The Bremen Town Musicians

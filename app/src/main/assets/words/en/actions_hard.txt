@@ -1,0 +1,42 @@
+# Actions · Hard
+# One word per line. Lines starting with # are ignored.
+doze
+undress
+add salt
+taste
+set the table
+do laundry
+negotiate
+improvise
+procrastinate
+meditate
+hypnotize
+eavesdrop
+decipher
+calibrate
+improvise dance
+moonwalk
+juggle
+yodel
+whistle
+hum
+sketch
+doodle
+brainstorm
+proofread
+translate
+subtitling
+debug
+refactor
+audit
+filibuster
+sabotage
+boycott
+campaign
+lobby
+arbitrage
+whittle
+solder
+weld
+gild
+emboss

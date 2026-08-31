@@ -1,0 +1,42 @@
+# Music · Medium
+# One word per line. Lines starting with # are ignored.
+saxophone
+cello
+harp
+ukulele
+synthesizer
+bass guitar
+conductor
+composer
+opera
+ballet
+symphony
+sonata
+duet
+solo
+remix
+cover
+festival
+tour
+stage
+spotlight
+backstage
+vinyl
+cassette
+mp3
+blues
+reggae
+metal
+disco
+techno
+folk
+chanson
+Queen
+Madonna
+Eminem
+Shakira
+Adele
+Ed Sheeran
+Taylor Swift
+Billie Eilish
+BTS

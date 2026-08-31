@@ -1,0 +1,52 @@
+# Jobs · Medium
+# One word per line. Lines starting with # are ignored.
+surgeon
+professor
+designer
+electrician
+plumber
+carpenter
+welder
+flight attendant
+pastry chef
+bartender
+barista
+gardener
+makeup artist
+translator
+director
+musician
+sculptor
+detective
+rescuer
+biologist
+chemist
+physicist
+psychologist
+pharmacist
+accountant
+banker
+realtor
+tour guide
+blogger
+courier
+secretary
+diplomat
+politician
+jeweler
+tailor
+blacksmith
+forester
+composer
+producer
+animator
+paramedic
+notary
+mayor
+news anchor
+locksmith
+truck driver
+masseur
+fitness trainer
+volunteer
+spy

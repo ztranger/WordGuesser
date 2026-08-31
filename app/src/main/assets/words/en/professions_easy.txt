@@ -1,0 +1,52 @@
+# Jobs · Easy
+# One word per line. Lines starting with # are ignored.
+doctor
+teacher
+cook
+driver
+pilot
+police officer
+firefighter
+soldier
+nurse
+dentist
+builder
+painter
+singer
+actor
+dancer
+artist
+writer
+farmer
+hairdresser
+photographer
+journalist
+waiter
+cashier
+salesperson
+postman
+librarian
+security guard
+sailor
+captain
+baker
+coach
+judge
+lawyer
+programmer
+engineer
+architect
+scientist
+astronaut
+clown
+magician
+king
+president
+nanny
+cleaner
+mechanic
+veterinarian
+taxi driver
+fisherman
+hunter
+miner

@@ -1,0 +1,42 @@
+# Movies & TV · Hard
+# One word per line. Lines starting with # are ignored.
+The Shawshank Redemption
+The Green Mile
+Dune
+Mission Impossible
+Fast and Furious
+Monsters Inc
+How to Train Your Dragon
+Tangled
+Bridgerton
+True Detective
+Euphoria
+Twin Peaks
+The X-Files
+Doctor Who
+Predator
+RoboCop
+Gremlins
+The Chronicles of Narnia
+Divergent
+Saw
+Scream
+The Exorcist
+Psycho
+Doctor Strange
+Black Panther
+WandaVision
+Attack on Titan
+Death Note
+Howl's Moving Castle
+Princess Mononoke
+Your Name
+Money Heist
+The Boys
+The Last of Us
+Parasite
+Whiplash
+La La Land
+The Grand Budapest Hotel
+Mad Max Fury Road
+Inglourious Basterds

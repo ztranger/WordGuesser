@@ -1,0 +1,42 @@
+# Cities & countries · Hard
+# One word per line. Lines starting with # are ignored.
+Reykjavik
+Tallinn
+Riga
+Vilnius
+Ljubljana
+Bratislava
+Luxembourg
+Valletta
+Tirana
+Podgorica
+Skopje
+Chisinau
+Yerevan
+Tbilisi
+Baku
+Astana
+Tashkent
+Bishkek
+Dushanbe
+Ashgabat
+Ulaanbaatar
+Kathmandu
+Colombo
+Dhaka
+Yangon
+Phnom Penh
+Vientiane
+Hanoi
+Jakarta
+Manila
+Wellington
+Addis Ababa
+Casablanca
+Marrakesh
+Tunis
+Algiers
+Caracas
+Bogota
+Quito
+La Paz

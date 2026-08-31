@@ -17,9 +17,7 @@ data class SetupSettings(
             val targetScore = raw.targetScore.takeIf { it in GameRules.targetScoreOptions } ?: 20
             val roundDurationSec =
                 raw.roundDurationSec.takeIf { it in GameRules.roundDurationOptions } ?: 60
-            val selected = raw.selectedCategoryIds
-                .intersect(knownCategoryIds)
-                .ifEmpty { knownCategoryIds }
+            val selected = migrateCategoryIds(raw.selectedCategoryIds, knownCategoryIds)
             return SetupSettings(
                 targetScore = targetScore,
                 teamCount = teamCount,
@@ -27,6 +25,18 @@ data class SetupSettings(
                 roundDurationSec = roundDurationSec,
                 selectedCategoryIds = selected
             )
+        }
+
+        fun migrateCategoryIds(saved: Set<String>, knownCategoryIds: Set<String>): Set<String> {
+            if (saved.isEmpty()) return knownCategoryIds
+            val mapped = saved.flatMap { id ->
+                when {
+                    id in knownCategoryIds -> listOf(id)
+                    else -> listOf("${id}_easy", "${id}_medium", "${id}_hard")
+                        .filter { it in knownCategoryIds }
+                }
+            }.toSet()
+            return mapped.ifEmpty { knownCategoryIds }
         }
     }
 }

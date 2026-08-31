@@ -1,0 +1,42 @@
+# Sports · Hard
+# One word per line. Lines starting with # are ignored.
+synchronized swimming
+bobsleigh
+luge
+skeleton
+ski jumping
+greco-roman wrestling
+sambo
+muay thai
+capoeira
+wushu
+kendo
+modern pentathlon
+orienteering
+floorball
+netball
+ultimate frisbee
+hang gliding
+paragliding
+bungee jumping
+decathlon
+hammer throw
+race walking
+dressage
+caving
+powerlifting
+arm wrestling
+kettlebell sport
+mahjong
+backgammon
+go
+snooker
+field hockey
+water skiing
+spearfishing
+jet ski
+freestyle skiing
+acrobatics
+trampoline
+hurdles
+lasertag

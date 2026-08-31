@@ -1,0 +1,74 @@
+# Objects · Medium
+# One word per line. Lines starting with # are ignored.
+tablet
+laptop
+headphones
+charger
+flashlight
+chandelier
+frying pan
+kettle
+microwave
+oven
+toaster
+blender
+vacuum cleaner
+washing machine
+iron
+hair dryer
+comb
+shampoo
+suitcase
+wallet
+curtains
+carpet
+armchair
+wardrobe
+shelf
+vase
+alarm clock
+nightstand
+hanger
+sponge
+mop
+dustpan
+matches
+lighter
+coffee maker
+mixer
+speaker
+battery
+lock
+sheet
+painting
+thermometer
+calendar
+globe
+binoculars
+compass
+helmet
+tent
+sleeping bag
+kerosene lamp
+screwdriver
+saw
+drill
+ladder
+rope
+puzzle
+playing cards
+tripod
+skis
+ice skates
+racket
+axe
+shovel
+rake
+watering can
+flowerpot
+steering wheel
+passport
+credit card
+piggy bank
+printer
+router

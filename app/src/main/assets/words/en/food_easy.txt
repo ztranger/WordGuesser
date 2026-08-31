@@ -1,0 +1,52 @@
+# Food · Easy
+# One word per line. Lines starting with # are ignored.
+pizza
+burger
+sushi
+soup
+salad
+bread
+cheese
+butter
+egg
+milk
+tea
+coffee
+juice
+water
+ice cream
+cake
+cookie
+candy
+chocolate
+apple
+banana
+orange
+pear
+grape
+watermelon
+strawberry
+tomato
+cucumber
+potato
+carrot
+onion
+garlic
+rice
+pasta
+pancake
+dumpling
+hot dog
+french fries
+chicken
+fish
+meat
+sausage
+yogurt
+honey
+jam
+porridge
+pie
+sandwich
+chips
+popcorn

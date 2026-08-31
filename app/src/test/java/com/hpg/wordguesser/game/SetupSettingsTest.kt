@@ -66,4 +66,24 @@ class SetupSettingsTest {
         )
         assertEquals(known, setup.selectedCategoryIds)
     }
+
+    @Test
+    fun oldCategoryIdsExpandIntoDifficultyPacks() {
+        val known = setOf(
+            "animals_easy",
+            "animals_medium",
+            "animals_hard",
+            "food_easy",
+            "transport"
+        )
+        val setup = SetupSettings.sanitize(
+            raw = SetupSettings(selectedCategoryIds = setOf("animals", "food")),
+            knownCategoryIds = known,
+            language = AppLanguage.English
+        )
+        assertEquals(
+            setOf("animals_easy", "animals_medium", "animals_hard", "food_easy"),
+            setup.selectedCategoryIds
+        )
+    }
 }

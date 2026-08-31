@@ -43,8 +43,10 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 categories = WordRepository.definitions.map { definition ->
                     WordCategory(
                         id = definition.id,
-                        title = strings.categoryTitle(definition.id),
-                        fileName = definition.fileName
+                        title = strings.topicTitle(definition.topicId),
+                        fileName = definition.fileName,
+                        difficulty = definition.difficulty,
+                        difficultyLabel = definition.difficulty?.let { strings.difficultyLabel(it) }
                     )
                 },
                 selectedCategoryIds = setup.selectedCategoryIds,

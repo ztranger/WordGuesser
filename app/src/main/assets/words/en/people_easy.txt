@@ -1,0 +1,42 @@
+# Famous people · Easy
+# One word per line. Lines starting with # are ignored.
+Pushkin
+Einstein
+Newton
+Shakespeare
+Napoleon
+Cleopatra
+Mozart
+Picasso
+Messi
+Ronaldo
+Gagarin
+Armstrong
+Chaplin
+Marilyn Monroe
+Putin
+Obama
+Harry Potter
+Sherlock Holmes
+Santa Claus
+Cinderella
+Superman
+Spider-Man
+Batman
+Mickey Mouse
+Winnie the Pooh
+Cheburashka
+Gena the Crocodile
+Kolobok
+Ivan the Terrible
+Peter the Great
+Lomonosov
+Mendeleev
+Tchaikovsky
+Da Vinci
+Van Gogh
+Steve Jobs
+Bill Gates
+Elon Musk
+Cristiano
+Usain Bolt

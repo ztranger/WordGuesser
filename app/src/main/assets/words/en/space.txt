@@ -1,0 +1,42 @@
+# Space
+# One word per line. Lines starting with # are ignored.
+Sun
+Moon
+Earth
+Mars
+Venus
+Jupiter
+Saturn
+star
+planet
+comet
+asteroid
+galaxy
+Milky Way
+black hole
+astronaut
+spaceship
+rocket
+satellite
+space station
+spacesuit
+telescope
+orbit
+gravity
+eclipse
+meteorite
+constellation
+Big Dipper
+North Star
+alien
+UFO
+launch
+countdown
+weightlessness
+crater
+atmosphere
+vacuum
+light-year
+nebula
+supernova
+quasar

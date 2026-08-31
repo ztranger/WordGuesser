@@ -1,0 +1,56 @@
+# Actions · Medium
+# One word per line. Lines starting with # are ignored.
+climb
+crawl
+yawn
+stretch
+wake up
+get dressed
+tie shoelaces
+fry
+boil
+bake
+stir
+chew
+swallow
+vacuum
+sweep
+iron
+fold
+lock
+whisper
+shout
+argue
+apologize
+promise
+celebrate
+hug
+wave
+point
+knock
+ring
+type
+scroll
+zoom
+record
+upload
+download
+charge
+plug in
+unpack
+wrap
+measure
+brush teeth
+comb hair
+wash dishes
+stand up
+sit down
+lie down
+take a photo
+drive a car
+walk the dog
+plant a tree
+shake hands
+set an alarm
+sneeze
+cough

@@ -1,0 +1,42 @@
+# Holidays
+# One word per line. Lines starting with # are ignored.
+New Year
+Christmas
+Birthday
+Halloween
+Easter
+Valentine's Day
+March 8
+February 23
+Victory Day
+Maslenitsa
+Halloween pumpkin
+firework
+gift
+cake
+candle
+balloon
+garland
+Christmas tree
+Santa Claus
+Snow Maiden
+reindeer
+stocking
+carnival
+masquerade
+costume
+parade
+toast
+champagne
+olivier salad
+tangerines
+sparkler
+snowball fight
+ice rink
+wedding
+engagement
+anniversary
+graduation
+prom
+April Fools
+Thanksgiving

@@ -4,12 +4,16 @@ import android.content.Context
 import com.hpg.wordguesser.game.AppLanguage
 import com.hpg.wordguesser.game.GameStrings
 import com.hpg.wordguesser.game.WordCategory
+import com.hpg.wordguesser.game.WordDifficulty
 import java.io.File
 
 data class CategoryDefinition(
-    val id: String,
-    val fileName: String
-)
+    val topicId: String,
+    val difficulty: WordDifficulty? = null
+) {
+    val id: String = if (difficulty == null) topicId else "${topicId}_${difficulty.fileSuffix}"
+    val fileName: String = "$id.txt"
+}
 
 class WordRepository(private val context: Context) {
 
@@ -32,9 +36,11 @@ class WordRepository(private val context: Context) {
         return definitions.map { category ->
             WordCategory(
                 id = category.id,
-                title = strings.categoryTitle(category.id),
+                title = strings.topicTitle(category.topicId),
                 fileName = category.fileName,
-                wordCount = loadWords(language, category.id).size
+                wordCount = loadWords(language, category.id).size,
+                difficulty = category.difficulty,
+                difficultyLabel = category.difficulty?.let { strings.difficultyLabel(it) }
             )
         }
     }
@@ -58,7 +64,12 @@ class WordRepository(private val context: Context) {
     ): List<Pair<String, String>> {
         val strings = GameStrings.forLanguage(language)
         return categoryIds.flatMap { id ->
-            val title = strings.categoryTitle(id)
+            val category = definitions.firstOrNull { it.id == id }
+            val title = if (category == null) {
+                id
+            } else {
+                strings.categoryTitle(category.topicId, category.difficulty)
+            }
             loadWords(language, id).map { word -> word to title }
         }
     }
@@ -108,17 +119,35 @@ class WordRepository(private val context: Context) {
         const val WORDS_DIR = "words"
         const val ASSETS_DIR = "words"
 
-        val definitions = listOf(
-            CategoryDefinition("animals", "animals.txt"),
-            CategoryDefinition("food", "food.txt"),
-            CategoryDefinition("professions", "professions.txt"),
-            CategoryDefinition("sports", "sports.txt"),
-            CategoryDefinition("movies", "movies.txt"),
-            CategoryDefinition("objects", "objects.txt"),
-            CategoryDefinition("nature", "nature.txt"),
-            CategoryDefinition("actions", "actions.txt")
-        )
+        val definitions: List<CategoryDefinition> = buildList {
+            addAll(split("animals"))
+            addAll(split("food"))
+            addAll(split("professions"))
+            addAll(split("sports"))
+            addAll(split("movies"))
+            addAll(split("objects"))
+            addAll(split("nature"))
+            addAll(split("actions"))
+            addAll(split("cities"))
+            addAll(split("music"))
+            addAll(split("people"))
+            add(CategoryDefinition("transport"))
+            add(CategoryDefinition("clothes"))
+            add(CategoryDefinition("fairy_tales"))
+            add(CategoryDefinition("technology"))
+            add(CategoryDefinition("holidays"))
+            add(CategoryDefinition("school"))
+            add(CategoryDefinition("space"))
+            add(CategoryDefinition("hobbies"))
+            add(CategoryDefinition("emotions"))
+        }
 
         val knownCategoryIds: Set<String> = definitions.map { it.id }.toSet()
+
+        private fun split(topicId: String): List<CategoryDefinition> = listOf(
+            CategoryDefinition(topicId, WordDifficulty.Easy),
+            CategoryDefinition(topicId, WordDifficulty.Medium),
+            CategoryDefinition(topicId, WordDifficulty.Hard)
+        )
     }
 }

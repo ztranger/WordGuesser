@@ -42,6 +42,9 @@ data class GameStrings(
     private val duration90: String,
     private val durationFallback: String,
     private val categoryTitles: Map<String, String>,
+    private val difficultyEasy: String,
+    private val difficultyMedium: String,
+    private val difficultyHard: String,
     private val pluralWords: (Int) -> String,
     private val pluralPoints: (Int) -> String,
     private val roundPointsTemplate: (String) -> String,
@@ -71,7 +74,18 @@ data class GameStrings(
         else -> durationFallback.format(seconds)
     }
 
-    fun categoryTitle(id: String): String = categoryTitles[id] ?: id
+    fun topicTitle(topicId: String): String = categoryTitles[topicId] ?: topicId
+
+    fun difficultyLabel(difficulty: WordDifficulty): String = when (difficulty) {
+        WordDifficulty.Easy -> difficultyEasy
+        WordDifficulty.Medium -> difficultyMedium
+        WordDifficulty.Hard -> difficultyHard
+    }
+
+    fun categoryTitle(topicId: String, difficulty: WordDifficulty? = null): String {
+        val topic = topicTitle(topicId)
+        return if (difficulty == null) topic else "$topic · ${difficultyLabel(difficulty)}"
+    }
 
     companion object {
         fun forLanguage(language: AppLanguage): GameStrings = when (language) {
@@ -86,7 +100,7 @@ data class GameStrings(
             teamCount = "Сколько команд",
             roundDuration = "Длительность раунда",
             categories = "Категории слов",
-            categoriesHint = "Слова хранятся в файлах и пополняются при обновлении игры",
+            categoriesHint = "Можно выбрать несколько категорий. Повторяющиеся темы разделены по сложности",
             start = "Старт",
             selectCategories = "Выберите категории",
             language = "Язык",
@@ -128,8 +142,23 @@ data class GameStrings(
                 "movies" to "Кино и сериалы",
                 "objects" to "Предметы",
                 "nature" to "Природа",
-                "actions" to "Действия"
+                "actions" to "Действия",
+                "cities" to "Города и страны",
+                "music" to "Музыка",
+                "people" to "Знаменитости",
+                "transport" to "Транспорт",
+                "clothes" to "Одежда",
+                "fairy_tales" to "Сказки",
+                "technology" to "Технологии",
+                "holidays" to "Праздники",
+                "school" to "Школа",
+                "space" to "Космос",
+                "hobbies" to "Хобби",
+                "emotions" to "Эмоции"
             ),
+            difficultyEasy = "Простые",
+            difficultyMedium = "Средние",
+            difficultyHard = "Сложные",
             pluralWords = { n -> russianPlural(n, "слово", "слова", "слов") },
             pluralPoints = { n -> russianPlural(n, "очко", "очка", "очков") },
             roundPointsTemplate = { value -> "$value за раунд" },
@@ -144,7 +173,7 @@ data class GameStrings(
             teamCount = "Number of teams",
             roundDuration = "Round duration",
             categories = "Word categories",
-            categoriesHint = "Words are stored in files and grow when the game is updated",
+            categoriesHint = "Pick one or more packs. Repeated topics are split by difficulty",
             start = "Start",
             selectCategories = "Select categories",
             language = "Language",
@@ -186,8 +215,23 @@ data class GameStrings(
                 "movies" to "Movies & TV",
                 "objects" to "Objects",
                 "nature" to "Nature",
-                "actions" to "Actions"
+                "actions" to "Actions",
+                "cities" to "Cities & countries",
+                "music" to "Music",
+                "people" to "Famous people",
+                "transport" to "Transport",
+                "clothes" to "Clothes",
+                "fairy_tales" to "Fairy tales",
+                "technology" to "Technology",
+                "holidays" to "Holidays",
+                "school" to "School",
+                "space" to "Space",
+                "hobbies" to "Hobbies",
+                "emotions" to "Emotions"
             ),
+            difficultyEasy = "Easy",
+            difficultyMedium = "Medium",
+            difficultyHard = "Hard",
             pluralWords = { n -> if (n == 1) "word" else "words" },
             pluralPoints = { n -> if (n == 1) "point" else "points" },
             roundPointsTemplate = { value -> "$value this round" },

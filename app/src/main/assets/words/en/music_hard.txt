@@ -1,0 +1,42 @@
+# Music · Hard
+# One word per line. Lines starting with # are ignored.
+oboe
+bassoon
+viola
+double bass
+harpsichord
+theremin
+bagpipes
+sitar
+didgeridoo
+balalaika
+domra
+gusli
+counterpoint
+fugue
+arpeggio
+glissando
+vibrato
+staccato
+legato
+cadenza
+libretto
+overture
+nocturne
+etude
+prelude
+rhapsody
+oratorio
+a cappella
+polyphony
+atonal
+serialism
+gregorian chant
+Vivaldi
+Bach
+Chopin
+Debussy
+Stravinsky
+Shostakovich
+Prokofiev
+Rachmaninoff

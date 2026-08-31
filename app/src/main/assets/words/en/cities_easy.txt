@@ -1,0 +1,42 @@
+# Cities & countries · Easy
+# One word per line. Lines starting with # are ignored.
+Moscow
+Saint Petersburg
+London
+Paris
+Rome
+Berlin
+Madrid
+New York
+Los Angeles
+Tokyo
+Beijing
+Shanghai
+Dubai
+Istanbul
+Cairo
+Sydney
+Rio de Janeiro
+Mexico City
+Toronto
+Amsterdam
+Vienna
+Prague
+Warsaw
+Kiev
+Minsk
+Russia
+USA
+China
+Japan
+France
+Germany
+Italy
+Spain
+England
+Brazil
+India
+Canada
+Australia
+Turkey
+Egypt

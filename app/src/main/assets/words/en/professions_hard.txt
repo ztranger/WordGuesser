@@ -1,0 +1,48 @@
+# Jobs · Hard
+# One word per line. Lines starting with # are ignored.
+anesthesiologist
+cardiologist
+ophthalmologist
+dermatologist
+pediatrician
+midwife
+speech therapist
+dietitian
+archaeologist
+geologist
+meteorologist
+astronomer
+sysadmin
+copywriter
+recruiter
+logistics manager
+dispatcher
+customs officer
+border guard
+concierge
+choreographer
+stunt performer
+screenwriter
+cameraman
+game designer
+watchmaker
+shoemaker
+ecologist
+ambassador
+archivist
+sommelier
+actuary
+cartographer
+restorer
+cryptographer
+orthodontist
+pathologist
+oceanographer
+paleontologist
+seismologist
+etymologist
+choreologist
+glassblower
+beekeeper
+falconer
+lighthouse keeper

@@ -1,0 +1,42 @@
+# Sports · Easy
+# One word per line. Lines starting with # are ignored.
+football
+hockey
+basketball
+volleyball
+tennis
+swimming
+boxing
+running
+skiing
+skating
+chess
+yoga
+cycling
+golf
+baseball
+rugby
+badminton
+table tennis
+gymnastics
+wrestling
+karate
+judo
+surfing
+skateboard
+fishing
+dancing
+fitness
+marathon
+sprint
+jump
+bowling
+darts
+billiards
+horse racing
+snowboarding
+figure skating
+weightlifting
+climbing
+parkour
+esports

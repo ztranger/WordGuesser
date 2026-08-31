@@ -1,0 +1,42 @@
+# Sports · Medium
+# One word per line. Lines starting with # are ignored.
+handball
+water polo
+diving
+rowing
+sailing
+biathlon
+curling
+fencing
+archery
+triathlon
+high jump
+long jump
+pole vault
+shot put
+javelin
+discus
+taekwondo
+kickboxing
+aikido
+formula 1
+rally
+karting
+crossfit
+pilates
+aerobics
+mountaineering
+polo
+cricket
+squash
+sumo
+paintball
+lacrosse
+skydiving
+wakeboard
+windsurfing
+kitesurfing
+short track
+speed skating
+freestyle wrestling
+american football

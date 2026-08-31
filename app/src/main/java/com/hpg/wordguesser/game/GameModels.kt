@@ -4,8 +4,13 @@ data class WordCategory(
     val id: String,
     val title: String,
     val fileName: String,
-    val wordCount: Int = 0
-)
+    val wordCount: Int = 0,
+    val difficulty: WordDifficulty? = null,
+    val difficultyLabel: String? = null
+) {
+    val fullTitle: String
+        get() = if (difficultyLabel.isNullOrBlank()) title else "$title · $difficultyLabel"
+}
 
 data class Team(
     val id: Int,
