@@ -47,6 +47,7 @@ fun WordGuesserApp(viewModel: GameViewModel = viewModel()) {
                 onTeamName = viewModel::setTeamName,
                 onDuration = viewModel::setRoundDuration,
                 onToggleCategory = viewModel::toggleCategory,
+                onLanguage = viewModel::setLanguage,
                 onStart = viewModel::startGame
             )
             GameScreen.Countdown -> CountdownScreen(state)

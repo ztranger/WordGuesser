@@ -79,7 +79,7 @@ fun PlayScreen(
                     color = Cream
                 )
                 Text(
-                    text = "Угадано в раунде: ${state.roundGuessed.size}",
+                    text = state.strings.guessedInRound(state.roundGuessed.size),
                     style = MaterialTheme.typography.bodyMedium,
                     color = CreamMuted
                 )
@@ -158,8 +158,8 @@ fun PlayScreen(
                             .background(SkipRoseDeep)
                     )
                     Spacer(Modifier.height(6.dp))
-                    Text("Пропустить", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                    Text("без очка", fontSize = 12.sp, color = Cream.copy(alpha = 0.85f))
+                    Text(state.strings.skip, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                    Text(state.strings.skipHint, fontSize = 12.sp, color = Cream.copy(alpha = 0.85f))
                 }
             }
             Button(
@@ -184,8 +184,8 @@ fun PlayScreen(
                             .background(GuessGreenDeep)
                     )
                     Spacer(Modifier.height(6.dp))
-                    Text("Угадано", fontWeight = FontWeight.Bold, fontSize = 18.sp)
-                    Text("+1 очко", fontSize = 12.sp, color = Ink.copy(alpha = 0.75f))
+                    Text(state.strings.guessed, fontWeight = FontWeight.Bold, fontSize = 18.sp)
+                    Text(state.strings.guessedHint, fontSize = 12.sp, color = Ink.copy(alpha = 0.75f))
                 }
             }
         }

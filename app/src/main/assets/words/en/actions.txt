@@ -1,0 +1,216 @@
+# Actions
+# One word per line. Lines starting with # are ignored.
+run
+walk
+jump
+hop
+crawl
+climb
+fall
+stand up
+sit down
+lie down
+sleep
+doze
+yawn
+stretch
+wake up
+wash up
+brush teeth
+comb hair
+get dressed
+undress
+tie shoelaces
+cook
+cut
+fry
+boil
+bake
+stir
+add salt
+taste
+eat
+drink
+chew
+swallow
+set the table
+wash dishes
+wipe
+vacuum
+sweep
+do laundry
+iron
+fold
+hang
+open
+close
+lock
+search
+find
+hide
+lose
+throw
+catch
+kick
+hit
+push
+pull
+carry
+drag
+lift
+lower
+hold
+drop
+build
+break
+repair
+assemble
+take apart
+glue
+cut with scissors
+draw
+write
+read
+count
+study
+remember
+forget
+think
+dream
+imagine
+speak
+whisper
+shout
+sing
+whistle
+laugh
+smile
+cry
+frown
+be surprised
+get scared
+get angry
+be happy
+hug
+kiss
+wave
+point
+clap
+snap fingers
+knock
+call
+take a photo
+record a video
+listen
+hear
+look
+see
+smell
+feel
+touch
+pet a cat
+scratch
+bite
+lick
+blow
+breathe
+sneeze
+cough
+hiccup
+swim
+dive
+surface
+row
+ride
+slide
+spin
+rotate
+dance
+march
+step
+stomp
+sneak
+run away
+chase
+hide and seek
+play
+win
+lose
+argue
+make a deal
+promise
+lie
+confess
+ask
+answer
+explain
+show
+learn by heart
+take an exam
+work
+rest
+travel
+pack a suitcase
+unpack
+move house
+drive a car
+brake
+park
+refuel
+fly
+take off
+land
+sail
+drop anchor
+fish
+hunt
+plant a tree
+water plants
+dig
+weed
+harvest
+milk a cow
+feed
+walk the dog
+train an animal
+work out
+warm up
+stretch muscles
+meditate
+pray
+make a wish
+blow out candles
+give a gift
+unwrap
+congratulate
+meet
+see off
+shake hands
+bow
+nod
+blink
+wink
+shrug
+point a finger
+set an alarm
+pause
+rewind
+like
+scroll
+type
+copy
+paste
+delete
+save
+download
+upload
+turn on
+turn off
+charge
+reboot
+scroll
+swipe
+zoom in
+zoom out
+screenshot
+stream

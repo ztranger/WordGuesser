@@ -40,7 +40,7 @@ fun RoundResultsScreen(
             .padding(horizontal = 20.dp, vertical = 16.dp)
     ) {
         Text(
-            text = "Раунд окончен",
+            text = state.strings.roundOver,
             style = MaterialTheme.typography.headlineMedium,
             color = Cream
         )
@@ -51,7 +51,7 @@ fun RoundResultsScreen(
             modifier = Modifier.padding(top = 4.dp)
         )
         Text(
-            text = "+${state.roundPoints} ${pointsWord(state.roundPoints)} за раунд",
+            text = state.strings.roundPoints(state.roundPoints),
             style = MaterialTheme.typography.headlineLarge,
             color = GuessGreen,
             fontWeight = FontWeight.Bold,
@@ -65,13 +65,13 @@ fun RoundResultsScreen(
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             WordColumn(
-                title = "Угадано",
+                title = state.strings.guessedTitle,
                 words = state.roundGuessed,
                 accent = GuessGreen,
                 modifier = Modifier.weight(1f)
             )
             WordColumn(
-                title = "Не угадано",
+                title = state.strings.missedTitle,
                 words = state.roundMissed,
                 accent = SkipRose,
                 modifier = Modifier.weight(1f)
@@ -79,7 +79,7 @@ fun RoundResultsScreen(
         }
 
         Spacer(Modifier.height(16.dp))
-        PrimaryGameButton(text = "Далее", onClick = onNext)
+        PrimaryGameButton(text = state.strings.next, onClick = onNext)
     }
 }
 
@@ -112,16 +112,5 @@ private fun WordColumn(
                 }
             }
         }
-    }
-}
-
-private fun pointsWord(count: Int): String {
-    val mod10 = count % 10
-    val mod100 = count % 100
-    return when {
-        mod100 in 11..14 -> "очков"
-        mod10 == 1 -> "очко"
-        mod10 in 2..4 -> "очка"
-        else -> "очков"
     }
 }

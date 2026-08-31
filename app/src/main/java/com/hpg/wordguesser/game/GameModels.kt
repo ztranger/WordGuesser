@@ -27,7 +27,7 @@ data class GameUiState(
     val selectedCategoryIds: Set<String> = emptySet(),
     val targetScore: Int = 20,
     val teamCount: Int = 2,
-    val teamNames: List<String> = listOf("Команда 1", "Команда 2"),
+    val teamNames: List<String> = emptyList(),
     val roundDurationSec: Int = 60,
     val teams: List<Team> = emptyList(),
     val currentTeamIndex: Int = 0,
@@ -39,7 +39,8 @@ data class GameUiState(
     val roundMissed: List<String> = emptyList(),
     val gameOver: Boolean = false,
     val winnerIndex: Int? = null,
-    val wordsReady: Boolean = false
+    val wordsReady: Boolean = false,
+    val language: AppLanguage = AppLanguage.English
 ) {
     val currentTeam: Team?
         get() = teams.getOrNull(currentTeamIndex)
@@ -49,4 +50,7 @@ data class GameUiState(
 
     val winner: Team?
         get() = winnerIndex?.let { teams.getOrNull(it) }
+
+    val strings: GameStrings
+        get() = GameStrings.forLanguage(language)
 }

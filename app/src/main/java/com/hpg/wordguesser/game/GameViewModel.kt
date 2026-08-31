@@ -29,14 +29,24 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private var deck = WordDeck(emptyList())
 
     init {
-        val knownIds = WordRepository.builtInCategories.map { it.id }.toSet()
+        val knownIds = WordRepository.knownCategoryIds
+        val language = AppLanguage.resolve(setupPreferences.loadLanguageCode())
         val setup = SetupSettings.sanitize(
             raw = setupPreferences.load() ?: SetupSettings(selectedCategoryIds = knownIds),
-            knownCategoryIds = knownIds
+            knownCategoryIds = knownIds,
+            language = language
         )
+        val strings = GameStrings.forLanguage(language)
         _uiState.update {
             it.copy(
-                categories = WordRepository.builtInCategories,
+                language = language,
+                categories = WordRepository.definitions.map { definition ->
+                    WordCategory(
+                        id = definition.id,
+                        title = strings.categoryTitle(definition.id),
+                        fileName = definition.fileName
+                    )
+                },
                 selectedCategoryIds = setup.selectedCategoryIds,
                 targetScore = setup.targetScore,
                 teamCount = setup.teamCount,
@@ -44,13 +54,21 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 roundDurationSec = setup.roundDurationSec
             )
         }
-        viewModelScope.launch {
-            val categories = withContext(Dispatchers.IO) {
-                repository.ensureWordFiles()
-                repository.loadCategories()
-            }
-            _uiState.update { it.copy(categories = categories, wordsReady = true) }
+        reloadCategories(language)
+    }
+
+    fun setLanguage(language: AppLanguage) {
+        if (language == _uiState.value.language) return
+        setupPreferences.saveLanguage(language)
+        _uiState.update { state ->
+            state.copy(
+                language = language,
+                teamNames = GameRules.adjustTeamNames(state.teamNames, state.teamCount, language),
+                wordsReady = false
+            )
         }
+        persistSetup()
+        reloadCategories(language)
     }
 
     fun setTargetScore(score: Int) {
@@ -62,7 +80,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         _uiState.update {
             it.copy(
                 teamCount = count,
-                teamNames = GameRules.adjustTeamNames(it.teamNames, count)
+                teamNames = GameRules.adjustTeamNames(it.teamNames, count, it.language)
             )
         }
         persistSetup()
@@ -101,13 +119,13 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         roundJob?.cancel()
         viewModelScope.launch {
             val words = withContext(Dispatchers.IO) {
-                repository.loadWordsForCategories(state.selectedCategoryIds)
+                repository.loadWordsForCategories(state.language, state.selectedCategoryIds)
             }
             if (words.isEmpty()) return@launch
             deck = WordDeck(words)
-            val names = GameRules.adjustTeamNames(state.teamNames, state.teamCount)
+            val names = GameRules.adjustTeamNames(state.teamNames, state.teamCount, state.language)
             val teams = names.mapIndexed { index, name ->
-                Team(id = index, name = name.ifBlank { "Команда ${index + 1}" })
+                Team(id = index, name = name.ifBlank { state.strings.teamName(index + 1) })
             }
             _uiState.update {
                 it.copy(
@@ -191,8 +209,25 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 teamCount = state.teamCount,
                 teamNames = state.teamNames,
                 roundDurationSec = state.roundDurationSec,
-                wordsReady = state.wordsReady
+                wordsReady = state.wordsReady,
+                language = state.language
             )
+        }
+    }
+
+    private fun reloadCategories(language: AppLanguage) {
+        viewModelScope.launch {
+            val categories = withContext(Dispatchers.IO) {
+                repository.ensureWordFiles(language)
+                repository.loadCategories(language)
+            }
+            _uiState.update { state ->
+                if (state.language != language) {
+                    state
+                } else {
+                    state.copy(categories = categories, wordsReady = true)
+                }
+            }
         }
     }
 

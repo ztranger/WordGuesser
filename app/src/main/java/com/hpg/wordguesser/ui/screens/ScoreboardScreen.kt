@@ -25,6 +25,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.hpg.wordguesser.game.GameStrings
 import com.hpg.wordguesser.game.GameUiState
 import com.hpg.wordguesser.game.Team
 import com.hpg.wordguesser.ui.components.PrimaryGameButton
@@ -51,23 +52,23 @@ fun ScoreboardScreen(
             .padding(horizontal = 20.dp, vertical = 16.dp)
     ) {
         Text(
-            text = if (state.gameOver) "Игра окончена" else "Счёт",
+            text = if (state.gameOver) state.strings.gameOver else state.strings.score,
             style = MaterialTheme.typography.headlineLarge,
             color = Cream
         )
         Text(
-            text = "До победы: ${state.targetScore} ${if (state.targetScore % 10 == 1 && state.targetScore % 100 != 11) "слово" else "слов"}",
+            text = state.strings.playUntilWords(state.targetScore),
             style = MaterialTheme.typography.bodyLarge,
             color = CreamMuted,
             modifier = Modifier.padding(top = 4.dp, bottom = 16.dp)
         )
 
         if (state.gameOver && state.winner != null) {
-            WinnerBanner(team = state.winner!!)
+            WinnerBanner(team = state.winner!!, strings = state.strings)
             Spacer(Modifier.height(16.dp))
         } else if (!state.gameOver) {
             Text(
-                text = "Сейчас ходит: ${state.currentTeam?.name ?: ""}",
+                text = state.strings.nowPlaying(state.currentTeam?.name ?: ""),
                 style = MaterialTheme.typography.titleLarge,
                 color = Sunset,
                 modifier = Modifier.padding(bottom = 12.dp)
@@ -85,24 +86,25 @@ fun ScoreboardScreen(
                     place = index + 1,
                     team = team,
                     highlighted = isNext || isWinner,
-                    isNextUp = isNext
+                    isNextUp = isNext,
+                    nextRoundLabel = state.strings.nextRound
                 )
             }
         }
 
         Spacer(Modifier.height(16.dp))
         if (state.gameOver) {
-            PrimaryGameButton(text = "Новая игра", onClick = onNewGame)
+            PrimaryGameButton(text = state.strings.newGame, onClick = onNewGame)
         } else {
             PrimaryGameButton(
-                text = "Старт раунда",
+                text = state.strings.startRound,
                 onClick = onStartNextRound,
                 containerColor = Violet,
                 contentColor = Cream
             )
             Spacer(Modifier.height(10.dp))
             PrimaryGameButton(
-                text = "Сдаться и начать заново",
+                text = state.strings.giveUp,
                 onClick = onNewGame,
                 containerColor = InkCard,
                 contentColor = Cream
@@ -112,7 +114,7 @@ fun ScoreboardScreen(
 }
 
 @Composable
-private fun WinnerBanner(team: Team) {
+private fun WinnerBanner(team: Team, strings: GameStrings) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -121,7 +123,7 @@ private fun WinnerBanner(team: Team) {
             .border(1.dp, Gold, RoundedCornerShape(24.dp))
             .padding(18.dp)
     ) {
-        Text("Победитель", color = Gold, style = MaterialTheme.typography.labelLarge)
+        Text(strings.winner, color = Gold, style = MaterialTheme.typography.labelLarge)
         Text(
             text = team.name,
             color = Cream,
@@ -130,7 +132,7 @@ private fun WinnerBanner(team: Team) {
             modifier = Modifier.padding(top = 4.dp)
         )
         Text(
-            text = "${team.score} очков",
+            text = strings.winnerPoints(team.score),
             color = GuessGreen,
             style = MaterialTheme.typography.titleLarge,
             modifier = Modifier.padding(top = 4.dp)
@@ -143,7 +145,8 @@ private fun TeamScoreRow(
     place: Int,
     team: Team,
     highlighted: Boolean,
-    isNextUp: Boolean
+    isNextUp: Boolean,
+    nextRoundLabel: String
 ) {
     Row(
         modifier = Modifier
@@ -177,7 +180,7 @@ private fun TeamScoreRow(
         ) {
             Text(team.name, color = Cream, style = MaterialTheme.typography.titleLarge)
             if (isNextUp) {
-                Text("следующий раунд", color = Sunset, fontSize = 12.sp)
+                Text(nextRoundLabel, color = Sunset, fontSize = 12.sp)
             }
         }
         Text(

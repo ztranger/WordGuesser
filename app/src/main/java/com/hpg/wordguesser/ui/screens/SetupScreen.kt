@@ -24,6 +24,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.hpg.wordguesser.game.AppLanguage
 import com.hpg.wordguesser.game.GameRules
 import com.hpg.wordguesser.game.GameUiState
 import com.hpg.wordguesser.ui.components.CategoryCard
@@ -45,8 +46,10 @@ fun SetupScreen(
     onTeamName: (Int, String) -> Unit,
     onDuration: (Int) -> Unit,
     onToggleCategory: (String) -> Unit,
+    onLanguage: (AppLanguage) -> Unit,
     onStart: () -> Unit
 ) {
+    val strings = state.strings
     val canStart = state.wordsReady && state.selectedCategoryIds.isNotEmpty()
     Column(
         modifier = Modifier
@@ -64,25 +67,37 @@ fun SetupScreen(
             item(span = { GridItemSpan(2) }) {
                 Column {
                     Text(
-                        text = "Угадай слово",
+                        text = strings.appTitle,
                         style = MaterialTheme.typography.headlineLarge,
                         color = Cream,
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        text = "Объясняйте слова своей команде на время",
+                        text = strings.appSubtitle,
                         style = MaterialTheme.typography.bodyLarge,
                         color = CreamMuted,
                         modifier = Modifier.padding(top = 6.dp, bottom = 8.dp)
                     )
-                    SectionTitle("Играем до скольких слов")
+                    SectionTitle(strings.language)
+                    ChipRow(
+                        options = listOf(
+                            strings.languageRussian to (state.language == AppLanguage.Russian),
+                            strings.languageEnglish to (state.language == AppLanguage.English)
+                        ),
+                        onSelect = { index ->
+                            onLanguage(
+                                if (index == 0) AppLanguage.Russian else AppLanguage.English
+                            )
+                        }
+                    )
+                    SectionTitle(strings.playUntil)
                     ChipRow(
                         options = GameRules.targetScoreOptions.map { score ->
                             "$score" to (state.targetScore == score)
                         },
                         onSelect = { onTargetScore(GameRules.targetScoreOptions[it]) }
                     )
-                    SectionTitle("Сколько команд")
+                    SectionTitle(strings.teamCount)
                     ChipRow(
                         options = GameRules.teamCountOptions.map { count ->
                             "$count" to (state.teamCount == count)
@@ -98,7 +113,7 @@ fun SetupScreen(
                                 .fillMaxWidth()
                                 .padding(bottom = 8.dp),
                             singleLine = true,
-                            label = { Text("Название команды ${index + 1}") },
+                            label = { Text(strings.teamNameLabel(index + 1)) },
                             shape = RoundedCornerShape(16.dp),
                             colors = OutlinedTextFieldDefaults.colors(
                                 focusedBorderColor = Sunset,
@@ -111,16 +126,16 @@ fun SetupScreen(
                             )
                         )
                     }
-                    SectionTitle("Длительность раунда")
+                    SectionTitle(strings.roundDuration)
                     ChipRow(
                         options = GameRules.roundDurationOptions.map { seconds ->
-                            durationLabel(seconds) to (state.roundDurationSec == seconds)
+                            strings.durationLabel(seconds) to (state.roundDurationSec == seconds)
                         },
                         onSelect = { onDuration(GameRules.roundDurationOptions[it]) }
                     )
-                    SectionTitle("Категории слов")
+                    SectionTitle(strings.categories)
                     Text(
-                        text = "Слова хранятся в файлах и пополняются при обновлении игры",
+                        text = strings.categoriesHint,
                         style = MaterialTheme.typography.bodyMedium,
                         color = CreamMuted,
                         modifier = Modifier.padding(bottom = 4.dp)
@@ -130,7 +145,7 @@ fun SetupScreen(
             items(state.categories, key = { it.id }) { category ->
                 CategoryCard(
                     title = category.title,
-                    wordCount = category.wordCount,
+                    countLabel = strings.wordCountLabel(category.wordCount),
                     selected = category.id in state.selectedCategoryIds,
                     onClick = { onToggleCategory(category.id) },
                     modifier = Modifier.fillMaxWidth()
@@ -146,7 +161,7 @@ fun SetupScreen(
                 .padding(horizontal = 20.dp, vertical = 16.dp)
         ) {
             PrimaryGameButton(
-                text = if (canStart) "Старт" else "Выберите категории",
+                text = if (canStart) strings.start else strings.selectCategories,
                 onClick = onStart,
                 enabled = canStart,
                 containerColor = Violet,
@@ -154,11 +169,4 @@ fun SetupScreen(
             )
         }
     }
-}
-
-private fun durationLabel(seconds: Int): String = when (seconds) {
-    30 -> "30 сек"
-    60 -> "1 мин"
-    90 -> "1,5 мин"
-    else -> "$seconds сек"
 }

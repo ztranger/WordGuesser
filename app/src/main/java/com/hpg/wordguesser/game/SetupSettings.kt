@@ -3,12 +3,16 @@ package com.hpg.wordguesser.game
 data class SetupSettings(
     val targetScore: Int = 20,
     val teamCount: Int = 2,
-    val teamNames: List<String> = GameRules.defaultTeamNames(2),
+    val teamNames: List<String> = emptyList(),
     val roundDurationSec: Int = 60,
     val selectedCategoryIds: Set<String> = emptySet()
 ) {
     companion object {
-        fun sanitize(raw: SetupSettings, knownCategoryIds: Set<String>): SetupSettings {
+        fun sanitize(
+            raw: SetupSettings,
+            knownCategoryIds: Set<String>,
+            language: AppLanguage
+        ): SetupSettings {
             val teamCount = raw.teamCount.takeIf { it in GameRules.teamCountOptions } ?: 2
             val targetScore = raw.targetScore.takeIf { it in GameRules.targetScoreOptions } ?: 20
             val roundDurationSec =
@@ -19,7 +23,7 @@ data class SetupSettings(
             return SetupSettings(
                 targetScore = targetScore,
                 teamCount = teamCount,
-                teamNames = GameRules.adjustTeamNames(raw.teamNames, teamCount),
+                teamNames = GameRules.adjustTeamNames(raw.teamNames, teamCount, language),
                 roundDurationSec = roundDurationSec,
                 selectedCategoryIds = selected
             )

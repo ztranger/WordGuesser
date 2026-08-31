@@ -11,7 +11,8 @@ class SetupSettingsTest {
     fun firstLaunchSelectsEveryKnownCategory() {
         val setup = SetupSettings.sanitize(
             raw = SetupSettings(selectedCategoryIds = known),
-            knownCategoryIds = known
+            knownCategoryIds = known,
+            language = AppLanguage.Russian
         )
         assertEquals(known, setup.selectedCategoryIds)
     }
@@ -26,7 +27,8 @@ class SetupSettingsTest {
                 roundDurationSec = 90,
                 selectedCategoryIds = setOf("food", "sports")
             ),
-            knownCategoryIds = known
+            knownCategoryIds = known,
+            language = AppLanguage.Russian
         )
         assertEquals(50, setup.targetScore)
         assertEquals(3, setup.teamCount)
@@ -45,7 +47,8 @@ class SetupSettingsTest {
                 roundDurationSec = 12,
                 selectedCategoryIds = setOf("food", "removed")
             ),
-            knownCategoryIds = known
+            knownCategoryIds = known,
+            language = AppLanguage.Russian
         )
         assertEquals(20, setup.targetScore)
         assertEquals(2, setup.teamCount)
@@ -58,7 +61,8 @@ class SetupSettingsTest {
     fun emptySavedCategoriesFallBackToAll() {
         val setup = SetupSettings.sanitize(
             raw = SetupSettings(selectedCategoryIds = emptySet()),
-            knownCategoryIds = known
+            knownCategoryIds = known,
+            language = AppLanguage.English
         )
         assertEquals(known, setup.selectedCategoryIds)
     }

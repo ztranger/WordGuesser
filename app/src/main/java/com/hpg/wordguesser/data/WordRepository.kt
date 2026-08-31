@@ -1,64 +1,83 @@
 package com.hpg.wordguesser.data
 
 import android.content.Context
+import com.hpg.wordguesser.game.AppLanguage
+import com.hpg.wordguesser.game.GameStrings
 import com.hpg.wordguesser.game.WordCategory
 import java.io.File
 
+data class CategoryDefinition(
+    val id: String,
+    val fileName: String
+)
+
 class WordRepository(private val context: Context) {
 
-    private val wordsDir: File
-        get() = File(context.filesDir, WORDS_DIR)
-
-    fun ensureWordFiles() {
-        wordsDir.mkdirs()
-        for (category in builtInCategories) {
-            val dest = File(wordsDir, category.fileName)
+    fun ensureWordFiles(language: AppLanguage) {
+        migrateLegacyRussianFiles()
+        val destDir = languageDir(language)
+        destDir.mkdirs()
+        for (category in definitions) {
+            val dest = File(destDir, category.fileName)
             if (!dest.exists()) {
-                copyFromAssets(category.fileName, dest)
+                copyFromAssets(language, category.fileName, dest)
             } else {
-                mergeNewWordsFromAssets(category.fileName, dest)
+                mergeNewWordsFromAssets(language, category.fileName, dest)
             }
         }
     }
 
-    fun loadCategories(): List<WordCategory> =
-        builtInCategories.map { category ->
-            category.copy(wordCount = loadWords(category.id).size)
+    fun loadCategories(language: AppLanguage): List<WordCategory> {
+        val strings = GameStrings.forLanguage(language)
+        return definitions.map { category ->
+            WordCategory(
+                id = category.id,
+                title = strings.categoryTitle(category.id),
+                fileName = category.fileName,
+                wordCount = loadWords(language, category.id).size
+            )
         }
+    }
 
-    fun loadWords(categoryId: String): List<String> {
-        val category = builtInCategories.firstOrNull { it.id == categoryId } ?: return emptyList()
-        val file = File(wordsDir, category.fileName)
+    fun loadWords(language: AppLanguage, categoryId: String): List<String> {
+        val category = definitions.firstOrNull { it.id == categoryId } ?: return emptyList()
+        val file = File(languageDir(language), category.fileName)
         val lines = if (file.exists()) {
             file.readLines()
         } else {
-            readAssetLines(category.fileName)
+            readAssetLines(language, category.fileName)
         }
         return lines.map { it.trim() }
             .filter { it.isNotEmpty() && !it.startsWith("#") }
             .distinct()
     }
 
-    fun loadWordsForCategories(categoryIds: Set<String>): List<Pair<String, String>> {
-        val titles = builtInCategories.associate { it.id to it.title }
+    fun loadWordsForCategories(
+        language: AppLanguage,
+        categoryIds: Set<String>
+    ): List<Pair<String, String>> {
+        val strings = GameStrings.forLanguage(language)
         return categoryIds.flatMap { id ->
-            val title = titles[id] ?: id
-            loadWords(id).map { word -> word to title }
+            val title = strings.categoryTitle(id)
+            loadWords(language, id).map { word -> word to title }
         }
     }
 
-    private fun copyFromAssets(fileName: String, dest: File) {
-        context.assets.open("$ASSETS_DIR/$fileName").use { input ->
+    private fun languageDir(language: AppLanguage): File =
+        File(File(context.filesDir, WORDS_DIR), language.code)
+
+    private fun copyFromAssets(language: AppLanguage, fileName: String, dest: File) {
+        context.assets.open(assetPath(language, fileName)).use { input ->
             dest.outputStream().use { output -> input.copyTo(output) }
         }
     }
 
-    private fun mergeNewWordsFromAssets(fileName: String, dest: File) {
+    private fun mergeNewWordsFromAssets(language: AppLanguage, fileName: String, dest: File) {
         val existing = dest.readLines()
             .map { it.trim() }
             .filter { it.isNotEmpty() && !it.startsWith("#") }
             .toMutableSet()
-        val newcomers = readAssetLines(fileName)
+        val newcomers = readAssetLines(language, fileName)
             .map { it.trim() }
             .filter { it.isNotEmpty() && !it.startsWith("#") && it !in existing }
         if (newcomers.isNotEmpty()) {
@@ -66,22 +85,40 @@ class WordRepository(private val context: Context) {
         }
     }
 
-    private fun readAssetLines(fileName: String): List<String> =
-        context.assets.open("$ASSETS_DIR/$fileName").bufferedReader().use { it.readLines() }
+    private fun readAssetLines(language: AppLanguage, fileName: String): List<String> =
+        context.assets.open(assetPath(language, fileName)).bufferedReader().use { it.readLines() }
+
+    private fun assetPath(language: AppLanguage, fileName: String): String =
+        "$ASSETS_DIR/${language.code}/$fileName"
+
+    private fun migrateLegacyRussianFiles() {
+        val root = File(context.filesDir, WORDS_DIR)
+        val ruDir = File(root, AppLanguage.Russian.code)
+        if (ruDir.exists()) return
+        val legacyFiles = definitions.map { File(root, it.fileName) }.filter { it.exists() }
+        if (legacyFiles.isEmpty()) return
+        ruDir.mkdirs()
+        legacyFiles.forEach { file ->
+            file.copyTo(File(ruDir, file.name), overwrite = false)
+            file.delete()
+        }
+    }
 
     companion object {
         const val WORDS_DIR = "words"
         const val ASSETS_DIR = "words"
 
-        val builtInCategories = listOf(
-            WordCategory("animals", "Животные", "animals.txt"),
-            WordCategory("food", "Еда", "food.txt"),
-            WordCategory("professions", "Профессии", "professions.txt"),
-            WordCategory("sports", "Спорт", "sports.txt"),
-            WordCategory("movies", "Кино и сериалы", "movies.txt"),
-            WordCategory("objects", "Предметы", "objects.txt"),
-            WordCategory("nature", "Природа", "nature.txt"),
-            WordCategory("actions", "Действия", "actions.txt")
+        val definitions = listOf(
+            CategoryDefinition("animals", "animals.txt"),
+            CategoryDefinition("food", "food.txt"),
+            CategoryDefinition("professions", "professions.txt"),
+            CategoryDefinition("sports", "sports.txt"),
+            CategoryDefinition("movies", "movies.txt"),
+            CategoryDefinition("objects", "objects.txt"),
+            CategoryDefinition("nature", "nature.txt"),
+            CategoryDefinition("actions", "actions.txt")
         )
+
+        val knownCategoryIds: Set<String> = definitions.map { it.id }.toSet()
     }
 }

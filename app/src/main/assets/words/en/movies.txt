@@ -1,0 +1,151 @@
+# Movies & TV
+# One word per line. Lines starting with # are ignored.
+Harry Potter
+The Lord of the Rings
+Star Wars
+The Avengers
+Spider-Man
+Batman
+Superman
+Iron Man
+Captain America
+Thor
+Hulk
+Black Panther
+Doctor Strange
+Joker
+Pirates of the Caribbean
+Titanic
+Avatar
+The Matrix
+Inception
+Interstellar
+Dune
+Gladiator
+Forrest Gump
+The Green Mile
+The Shawshank Redemption
+The Godfather
+Fight Club
+Fast and Furious
+Mission Impossible
+James Bond
+Indiana Jones
+Jurassic Park
+The Lion King
+Frozen
+Shrek
+Toy Story
+Monsters Inc
+Finding Nemo
+Cars
+How to Train Your Dragon
+Moana
+Tangled
+Aladdin
+The Little Mermaid
+Snow White
+Cinderella
+Mulan
+Beauty and the Beast
+Dumbo
+Bambi
+Tom and Jerry
+SpongeBob SquarePants
+The Simpsons
+Friends
+Game of Thrones
+Sherlock
+House
+Stranger Things
+The Witcher
+Bridgerton
+The Office
+Breaking Bad
+The Mandalorian
+Black Mirror
+True Detective
+Squid Game
+Euphoria
+Twin Peaks
+The X-Files
+Doctor Who
+Star Trek
+Alien
+Predator
+The Terminator
+RoboCop
+Back to the Future
+Home Alone
+Gremlins
+Ghostbusters
+The Hobbit
+The Chronicles of Narnia
+Twilight
+The Hunger Games
+Divergent
+Saw
+Scream
+It
+The Shining
+The Exorcist
+Psycho
+Jaws
+King Kong
+Godzilla
+Transformers
+Aquaman
+Wonder Woman
+The Flash
+Daredevil
+Logan
+Deadpool
+Guardians of the Galaxy
+Ant-Man
+Captain Marvel
+Black Widow
+Loki
+WandaVision
+Andor
+Obi-Wan Kenobi
+Avatar The Last Airbender
+Naruto
+One Piece
+Attack on Titan
+Death Note
+Howl's Moving Castle
+Spirited Away
+My Neighbor Totoro
+Princess Mononoke
+Your Name
+Studio Ghibli
+Money Heist
+The Boys
+Wednesday
+The Crown
+Succession
+Ted Lasso
+The Last of Us
+House of the Dragon
+Oppenheimer
+Barbie
+Joker Folie a Deux
+The Batman
+Top Gun Maverick
+Everything Everywhere All at Once
+Parasite
+Whiplash
+La La Land
+The Grand Budapest Hotel
+Mad Max Fury Road
+Blade Runner
+The Dark Knight
+Inglourious Basterds
+Pulp Fiction
+Kill Bill
+Reservoir Dogs
+Goodfellas
+Scarface
+Casino
+The Irishman
+Once Upon a Time in Hollywood

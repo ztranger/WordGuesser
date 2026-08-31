@@ -75,7 +75,13 @@ class GameRulesTest {
 
     @Test
     fun adjustTeamNamesKeepsExistingAndFillsTheRest() {
-        val names = GameRules.adjustTeamNames(listOf("Лисы", "Волки"), 4)
+        val names = GameRules.adjustTeamNames(listOf("Лисы", "Волки"), 4, AppLanguage.Russian)
         assertEquals(listOf("Лисы", "Волки", "Команда 3", "Команда 4"), names)
+    }
+
+    @Test
+    fun generatedTeamNamesFollowTheSelectedLanguage() {
+        val names = GameRules.adjustTeamNames(listOf("Команда 1", "Foxes"), 2, AppLanguage.English)
+        assertEquals(listOf("Team 1", "Foxes"), names)
     }
 }

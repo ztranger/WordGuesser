@@ -48,7 +48,7 @@ fun CountdownScreen(state: GameUiState) {
                 modifier = Modifier.padding(horizontal = 24.dp)
             )
             Text(
-                text = "Приготовьтесь объяснить слово",
+                text = state.strings.getReady,
                 style = MaterialTheme.typography.bodyLarge,
                 color = CreamMuted,
                 modifier = Modifier.padding(top = 8.dp, bottom = 28.dp)
@@ -62,7 +62,7 @@ fun CountdownScreen(state: GameUiState) {
             )
             Spacer(Modifier.height(12.dp))
             Text(
-                text = "Раунд начнётся через несколько секунд",
+                text = state.strings.roundStartsSoon,
                 style = MaterialTheme.typography.bodyMedium,
                 color = CreamMuted
             )

@@ -124,7 +124,7 @@ fun PrimaryGameButton(
 @Composable
 fun CategoryCard(
     title: String,
-    wordCount: Int,
+    countLabel: String,
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -149,7 +149,7 @@ fun CategoryCard(
             fontWeight = FontWeight.SemiBold
         )
         Text(
-            text = "$wordCount слов",
+            text = countLabel,
             style = MaterialTheme.typography.bodyMedium,
             color = Cream.copy(alpha = 0.7f),
             modifier = Modifier.padding(top = 4.dp)

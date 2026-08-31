@@ -36,13 +36,29 @@ object GameRules {
         return uniqueLeaderIndex(scores) != null
     }
 
-    fun defaultTeamNames(count: Int): List<String> =
-        (1..count).map { "Команда $it" }
+    fun defaultTeamNames(count: Int, language: AppLanguage): List<String> =
+        (1..count).map { GameStrings.forLanguage(language).teamName(it) }
 
-    fun adjustTeamNames(current: List<String>, count: Int): List<String> {
-        val defaults = defaultTeamNames(count)
+    fun isGeneratedTeamName(name: String, index: Int): Boolean {
+        val number = index + 1
+        return AppLanguage.entries.any { language ->
+            name == GameStrings.forLanguage(language).teamName(number)
+        }
+    }
+
+    fun adjustTeamNames(
+        current: List<String>,
+        count: Int,
+        language: AppLanguage
+    ): List<String> {
+        val defaults = defaultTeamNames(count, language)
         return defaults.mapIndexed { index, fallback ->
-            current.getOrNull(index)?.takeIf { it.isNotBlank() } ?: fallback
+            val existing = current.getOrNull(index)
+            when {
+                existing.isNullOrBlank() -> fallback
+                isGeneratedTeamName(existing, index) -> fallback
+                else -> existing
+            }
         }
     }
 }
