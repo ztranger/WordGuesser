@@ -23,11 +23,15 @@ class GameRulesTest {
     }
 
     @Test
-    fun laterTeamsGetAChanceToCatchUp() {
-        val afterSecondTeam = listOf(22, 21, 0)
-        assertFalse(
-            GameRules.shouldFinishGame(afterSecondTeam, targetScore = 20, lastPlayedIndex = 1)
-        )
+    fun catchUpWhenSomeoneHitTargetButCircleIsOpen() {
+        assertTrue(GameRules.isCatchUpPending(listOf(20, 5, 4), targetScore = 20, nextTeamIndex = 1))
+        assertTrue(GameRules.isCatchUpPending(listOf(22, 21, 0), targetScore = 20, nextTeamIndex = 2))
+    }
+
+    @Test
+    fun noCatchUpAtStartOfANewCircle() {
+        assertFalse(GameRules.isCatchUpPending(listOf(20, 5, 4), targetScore = 20, nextTeamIndex = 0))
+        assertFalse(GameRules.isCatchUpPending(listOf(12, 9, 11), targetScore = 20, nextTeamIndex = 1))
     }
 
     @Test

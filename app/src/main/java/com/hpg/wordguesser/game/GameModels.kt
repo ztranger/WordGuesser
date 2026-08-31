@@ -57,6 +57,13 @@ data class GameUiState(
     val winner: Team?
         get() = winnerIndex?.let { teams.getOrNull(it) }
 
+    val catchUpPending: Boolean
+        get() = !gameOver && GameRules.isCatchUpPending(
+            scores = teams.map { it.score },
+            targetScore = targetScore,
+            nextTeamIndex = currentTeamIndex
+        )
+
     val strings: GameStrings
         get() = GameStrings.forLanguage(language)
 

@@ -67,6 +67,10 @@ fun ScoreboardScreen(
             WinnerBanner(team = state.winner!!, strings = state.strings)
             Spacer(Modifier.height(16.dp))
         } else if (!state.gameOver) {
+            if (state.catchUpPending) {
+                CatchUpBanner(text = state.strings.catchUpHint)
+                Spacer(Modifier.height(12.dp))
+            }
             Text(
                 text = state.strings.nowPlaying(state.currentTeam?.name ?: ""),
                 style = MaterialTheme.typography.titleLarge,
@@ -111,6 +115,22 @@ fun ScoreboardScreen(
             )
         }
     }
+}
+
+@Composable
+private fun CatchUpBanner(text: String) {
+    Text(
+        text = text,
+        color = Cream,
+        style = MaterialTheme.typography.titleLarge,
+        fontWeight = FontWeight.SemiBold,
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(18.dp))
+            .background(Sunset.copy(alpha = 0.16f))
+            .border(1.dp, Sunset, RoundedCornerShape(18.dp))
+            .padding(horizontal = 16.dp, vertical = 14.dp)
+    )
 }
 
 @Composable

@@ -36,6 +36,16 @@ object GameRules {
         return uniqueLeaderIndex(scores) != null
     }
 
+    fun isCatchUpPending(
+        scores: List<Int>,
+        targetScore: Int,
+        nextTeamIndex: Int
+    ): Boolean {
+        if (scores.size < 2) return false
+        if (nextTeamIndex !in 1 until scores.size) return false
+        return hasReachedTarget(scores, targetScore)
+    }
+
     fun defaultTeamNames(count: Int, language: AppLanguage): List<String> =
         (1..count).map { GameStrings.forLanguage(language).teamName(it) }
 
