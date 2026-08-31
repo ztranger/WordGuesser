@@ -27,6 +27,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import com.hpg.wordguesser.game.CategoryTab
 import com.hpg.wordguesser.game.WordDifficulty
 import com.hpg.wordguesser.ui.theme.Cream
 import com.hpg.wordguesser.ui.theme.GuessGreen
@@ -34,6 +35,15 @@ import com.hpg.wordguesser.ui.theme.Ink
 import com.hpg.wordguesser.ui.theme.InkCard
 import com.hpg.wordguesser.ui.theme.SkipRose
 import com.hpg.wordguesser.ui.theme.Sunset
+import com.hpg.wordguesser.ui.theme.Violet
+
+fun WordDifficulty.difficultyAccent() = when (this) {
+    WordDifficulty.Easy -> GuessGreen
+    WordDifficulty.Medium -> Sunset
+    WordDifficulty.Hard -> SkipRose
+}
+
+fun CategoryTab.tabAccent() = difficulty?.difficultyAccent() ?: Violet
 
 @Composable
 fun OptionChip(
@@ -140,12 +150,7 @@ fun CategoryCard(
         if (selected) Sunset.copy(alpha = 0.18f) else InkCard,
         label = "catBg"
     )
-    val difficultyColor = when (difficulty) {
-        WordDifficulty.Easy -> GuessGreen
-        WordDifficulty.Medium -> Sunset
-        WordDifficulty.Hard -> SkipRose
-        null -> Cream.copy(alpha = 0.7f)
-    }
+    val difficultyColor = difficulty?.difficultyAccent() ?: Cream.copy(alpha = 0.7f)
     Column(
         modifier = modifier
             .clip(RoundedCornerShape(18.dp))

@@ -48,11 +48,14 @@ class GameStringsTest {
         assertEquals("Animals", strings.categoryTitle("animals"))
         assertEquals("Animals · Easy", strings.categoryTitle("animals", WordDifficulty.Easy))
         assertEquals("Easy", strings.difficultyLabel(WordDifficulty.Easy))
+        assertEquals("More", strings.categoryTabLabel(CategoryTab.Other))
         assertEquals("Start", strings.start)
         assertEquals("Team 1", strings.teamName(1))
         assertEquals("+1 point this round", strings.roundPoints(1))
         assertEquals("+2 points this round", strings.roundPoints(2))
         assertEquals("First to 20 words", strings.playUntilWords(20))
+        assertEquals("1 pack selected", strings.selectedPacksLabel(1))
+        assertEquals("3 packs selected", strings.selectedPacksLabel(3))
     }
 
     @Test
@@ -66,6 +69,8 @@ class GameStringsTest {
         assertEquals("Животные · Простые", strings.categoryTitle("animals", WordDifficulty.Easy))
         assertEquals("Сложные", strings.difficultyLabel(WordDifficulty.Hard))
         assertEquals("Города и страны", strings.topicTitle("cities"))
+        assertEquals("Выбрано: 4", strings.selectedPacksLabel(4))
+        assertEquals("Ещё", strings.categoryTabLabel(CategoryTab.Other))
     }
 
     @Test

@@ -5,3 +5,18 @@ enum class WordDifficulty(val fileSuffix: String) {
     Medium("medium"),
     Hard("hard")
 }
+
+enum class CategoryTab {
+    Easy,
+    Medium,
+    Hard,
+    Other;
+
+    val difficulty: WordDifficulty?
+        get() = when (this) {
+            Easy -> WordDifficulty.Easy
+            Medium -> WordDifficulty.Medium
+            Hard -> WordDifficulty.Hard
+            Other -> null
+        }
+}

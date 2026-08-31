@@ -19,17 +19,24 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.ScrollableTabRow
+import androidx.compose.material3.Tab
+import androidx.compose.material3.TabRowDefaults
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.hpg.wordguesser.game.AppLanguage
+import com.hpg.wordguesser.game.CategoryTab
 import com.hpg.wordguesser.game.GameRules
 import com.hpg.wordguesser.game.GameUiState
 import com.hpg.wordguesser.ui.components.CategoryCard
@@ -38,12 +45,15 @@ import com.hpg.wordguesser.ui.components.PrimaryGameButton
 import com.hpg.wordguesser.ui.components.SectionTitle
 import com.hpg.wordguesser.ui.components.SettingsButton
 import com.hpg.wordguesser.ui.components.SettingsDialog
+import com.hpg.wordguesser.ui.components.tabAccent
 import com.hpg.wordguesser.ui.theme.Cream
 import com.hpg.wordguesser.ui.theme.CreamMuted
 import com.hpg.wordguesser.ui.theme.Ink
 import com.hpg.wordguesser.ui.theme.InkCard
 import com.hpg.wordguesser.ui.theme.Sunset
 import com.hpg.wordguesser.ui.theme.Violet
+
+private val categoryTabs = CategoryTab.entries
 
 @Composable
 fun SetupScreen(
@@ -59,6 +69,9 @@ fun SetupScreen(
     val strings = state.strings
     val canStart = state.wordsReady && state.selectedCategoryIds.isNotEmpty()
     var settingsOpen by rememberSaveable { mutableStateOf(false) }
+    var categoryTab by rememberSaveable { mutableIntStateOf(0) }
+    val selectedTab = categoryTabs[categoryTab.coerceIn(categoryTabs.indices)]
+    val visibleCategories = state.categoriesOnTab(selectedTab)
     if (settingsOpen) {
         SettingsDialog(
             language = state.language,
@@ -152,18 +165,28 @@ fun SetupScreen(
                         text = strings.categoriesHint,
                         style = MaterialTheme.typography.bodyMedium,
                         color = CreamMuted,
-                        modifier = Modifier.padding(bottom = 4.dp)
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
+                    DifficultyTabRow(
+                        selectedIndex = categoryTab,
+                        selectedCountOnTab = { tab -> state.selectedCountOnTab(tab) },
+                        label = { strings.categoryTabLabel(it) },
+                        onSelect = { categoryTab = it }
+                    )
+                    Text(
+                        text = strings.selectedPacksLabel(state.selectedCategoryIds.size),
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = CreamMuted,
+                        modifier = Modifier.padding(top = 10.dp, bottom = 4.dp)
                     )
                 }
             }
-            items(state.categories, key = { it.id }) { category ->
+            items(visibleCategories, key = { it.id }) { category ->
                 CategoryCard(
                     title = category.title,
                     countLabel = strings.wordCountLabel(category.wordCount),
                     selected = category.id in state.selectedCategoryIds,
                     onClick = { onToggleCategory(category.id) },
-                    difficultyLabel = category.difficultyLabel,
-                    difficulty = category.difficulty,
                     modifier = Modifier.fillMaxWidth()
                 )
             }
@@ -182,6 +205,61 @@ fun SetupScreen(
                 enabled = canStart,
                 containerColor = Violet,
                 contentColor = Cream
+            )
+        }
+    }
+}
+
+@Composable
+private fun DifficultyTabRow(
+    selectedIndex: Int,
+    selectedCountOnTab: (CategoryTab) -> Int,
+    label: (CategoryTab) -> String,
+    onSelect: (Int) -> Unit
+) {
+    val selectedTab = categoryTabs[selectedIndex]
+    val accent = selectedTab.tabAccent()
+    ScrollableTabRow(
+        selectedTabIndex = selectedIndex,
+        containerColor = InkCard,
+        contentColor = Cream,
+        edgePadding = 8.dp,
+        divider = {},
+        indicator = { tabPositions ->
+            TabRowDefaults.SecondaryIndicator(
+                modifier = Modifier.tabIndicatorOffset(tabPositions[selectedIndex]),
+                color = accent
+            )
+        },
+        modifier = Modifier
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(16.dp))
+    ) {
+        categoryTabs.forEachIndexed { index, tab ->
+            val selectedOnTab = selectedCountOnTab(tab)
+            val selected = index == selectedIndex
+            val color = if (selected) tab.tabAccent() else CreamMuted
+            Tab(
+                selected = selected,
+                onClick = { onSelect(index) },
+                selectedContentColor = color,
+                unselectedContentColor = CreamMuted,
+                text = {
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Text(
+                            text = label(tab),
+                            fontWeight = FontWeight.SemiBold,
+                            maxLines = 1
+                        )
+                        if (selectedOnTab > 0) {
+                            Text(
+                                text = "$selectedOnTab",
+                                style = MaterialTheme.typography.bodyMedium,
+                                color = color
+                            )
+                        }
+                    }
+                }
             )
         }
     }

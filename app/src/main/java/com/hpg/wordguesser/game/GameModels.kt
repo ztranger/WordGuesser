@@ -58,4 +58,10 @@ data class GameUiState(
 
     val strings: GameStrings
         get() = GameStrings.forLanguage(language)
+
+    fun categoriesOnTab(tab: CategoryTab): List<WordCategory> =
+        categories.filter { it.difficulty == tab.difficulty }
+
+    fun selectedCountOnTab(tab: CategoryTab): Int =
+        categories.count { it.difficulty == tab.difficulty && it.id in selectedCategoryIds }
 }

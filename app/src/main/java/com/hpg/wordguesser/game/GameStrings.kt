@@ -45,11 +45,13 @@ data class GameStrings(
     private val difficultyEasy: String,
     private val difficultyMedium: String,
     private val difficultyHard: String,
+    private val categoryTabOther: String,
     private val pluralWords: (Int) -> String,
     private val pluralPoints: (Int) -> String,
     private val roundPointsTemplate: (String) -> String,
     private val playUntilTemplate: (String) -> String,
-    private val wordCountTemplate: (String) -> String
+    private val wordCountTemplate: (String) -> String,
+    private val selectedPacksTemplate: (Int) -> String
 ) {
     fun teamName(number: Int): String = teamNameTemplate.format(number)
 
@@ -67,6 +69,8 @@ data class GameStrings(
 
     fun wordCountLabel(count: Int): String = wordCountTemplate("$count ${pluralWords(count)}")
 
+    fun selectedPacksLabel(count: Int): String = selectedPacksTemplate(count)
+
     fun durationLabel(seconds: Int): String = when (seconds) {
         30 -> duration30
         60 -> duration60
@@ -80,6 +84,13 @@ data class GameStrings(
         WordDifficulty.Easy -> difficultyEasy
         WordDifficulty.Medium -> difficultyMedium
         WordDifficulty.Hard -> difficultyHard
+    }
+
+    fun categoryTabLabel(tab: CategoryTab): String = when (tab) {
+        CategoryTab.Easy -> difficultyEasy
+        CategoryTab.Medium -> difficultyMedium
+        CategoryTab.Hard -> difficultyHard
+        CategoryTab.Other -> categoryTabOther
     }
 
     fun categoryTitle(topicId: String, difficulty: WordDifficulty? = null): String {
@@ -100,7 +111,7 @@ data class GameStrings(
             teamCount = "Сколько команд",
             roundDuration = "Длительность раунда",
             categories = "Категории слов",
-            categoriesHint = "Можно выбрать несколько категорий. Повторяющиеся темы разделены по сложности",
+            categoriesHint = "Простые, средние и сложные — на своих вкладках. Темы без уровня — во вкладке «Ещё»",
             start = "Старт",
             selectCategories = "Выберите категории",
             language = "Язык",
@@ -159,11 +170,13 @@ data class GameStrings(
             difficultyEasy = "Простые",
             difficultyMedium = "Средние",
             difficultyHard = "Сложные",
+            categoryTabOther = "Ещё",
             pluralWords = { n -> russianPlural(n, "слово", "слова", "слов") },
             pluralPoints = { n -> russianPlural(n, "очко", "очка", "очков") },
             roundPointsTemplate = { value -> "$value за раунд" },
             playUntilTemplate = { value -> "До победы: $value" },
-            wordCountTemplate = { it }
+            wordCountTemplate = { it },
+            selectedPacksTemplate = { n -> "Выбрано: $n" }
         )
 
         private val English = GameStrings(
@@ -173,7 +186,7 @@ data class GameStrings(
             teamCount = "Number of teams",
             roundDuration = "Round duration",
             categories = "Word categories",
-            categoriesHint = "Pick one or more packs. Repeated topics are split by difficulty",
+            categoriesHint = "Easy, medium and hard have their own tabs. Packs without a level are under More",
             start = "Start",
             selectCategories = "Select categories",
             language = "Language",
@@ -232,11 +245,13 @@ data class GameStrings(
             difficultyEasy = "Easy",
             difficultyMedium = "Medium",
             difficultyHard = "Hard",
+            categoryTabOther = "More",
             pluralWords = { n -> if (n == 1) "word" else "words" },
             pluralPoints = { n -> if (n == 1) "point" else "points" },
             roundPointsTemplate = { value -> "$value this round" },
             playUntilTemplate = { value -> "First to $value" },
-            wordCountTemplate = { it }
+            wordCountTemplate = { it },
+            selectedPacksTemplate = { n -> if (n == 1) "1 pack selected" else "$n packs selected" }
         )
 
         private fun russianPlural(n: Int, one: String, few: String, many: String): String {
