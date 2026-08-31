@@ -4,6 +4,7 @@ import android.app.Application
 import android.os.SystemClock
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
+import com.hpg.wordguesser.data.SetupPreferences
 import com.hpg.wordguesser.data.WordRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -19,6 +20,7 @@ import kotlinx.coroutines.withContext
 class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository = WordRepository(application)
+    private val setupPreferences = SetupPreferences(application)
 
     private val _uiState = MutableStateFlow(GameUiState())
     val uiState: StateFlow<GameUiState> = _uiState.asStateFlow()
@@ -27,23 +29,33 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
     private var deck = WordDeck(emptyList())
 
     init {
+        val knownIds = WordRepository.builtInCategories.map { it.id }.toSet()
+        val setup = SetupSettings.sanitize(
+            raw = setupPreferences.load() ?: SetupSettings(selectedCategoryIds = knownIds),
+            knownCategoryIds = knownIds
+        )
+        _uiState.update {
+            it.copy(
+                categories = WordRepository.builtInCategories,
+                selectedCategoryIds = setup.selectedCategoryIds,
+                targetScore = setup.targetScore,
+                teamCount = setup.teamCount,
+                teamNames = setup.teamNames,
+                roundDurationSec = setup.roundDurationSec
+            )
+        }
         viewModelScope.launch {
             val categories = withContext(Dispatchers.IO) {
                 repository.ensureWordFiles()
                 repository.loadCategories()
             }
-            _uiState.update {
-                it.copy(
-                    categories = categories,
-                    selectedCategoryIds = categories.map { category -> category.id }.toSet(),
-                    wordsReady = true
-                )
-            }
+            _uiState.update { it.copy(categories = categories, wordsReady = true) }
         }
     }
 
     fun setTargetScore(score: Int) {
         _uiState.update { it.copy(targetScore = score) }
+        persistSetup()
     }
 
     fun setTeamCount(count: Int) {
@@ -53,6 +65,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 teamNames = GameRules.adjustTeamNames(it.teamNames, count)
             )
         }
+        persistSetup()
     }
 
     fun setTeamName(index: Int, name: String) {
@@ -63,10 +76,12 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             }
             state.copy(teamNames = names)
         }
+        persistSetup()
     }
 
     fun setRoundDuration(seconds: Int) {
         _uiState.update { it.copy(roundDurationSec = seconds) }
+        persistSetup()
     }
 
     fun toggleCategory(id: String) {
@@ -77,6 +92,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
             }
             state.copy(selectedCategoryIds = selected)
         }
+        persistSetup()
     }
 
     fun startGame() {
@@ -104,6 +120,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                     roundMissed = emptyList()
                 )
             }
+            persistSetup()
             beginRound()
         }
     }
@@ -177,6 +194,19 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 wordsReady = state.wordsReady
             )
         }
+    }
+
+    private fun persistSetup() {
+        val state = _uiState.value
+        setupPreferences.save(
+            SetupSettings(
+                targetScore = state.targetScore,
+                teamCount = state.teamCount,
+                teamNames = state.teamNames,
+                roundDurationSec = state.roundDurationSec,
+                selectedCategoryIds = state.selectedCategoryIds
+            )
+        )
     }
 
     private fun beginRound() {
