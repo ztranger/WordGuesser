@@ -32,6 +32,7 @@ import com.hpg.wordguesser.ui.theme.CreamMuted
 import com.hpg.wordguesser.ui.theme.Ink
 import com.hpg.wordguesser.ui.theme.InkCard
 import com.hpg.wordguesser.ui.theme.Sunset
+import com.hpg.wordguesser.ui.theme.Violet
 
 @Composable
 fun SettingsButton(
@@ -58,6 +59,7 @@ fun SettingsDialog(
     language: AppLanguage,
     strings: GameStrings,
     onLanguage: (AppLanguage) -> Unit,
+    onShowHowToPlay: () -> Unit,
     onDismiss: () -> Unit
 ) {
     Dialog(onDismissRequest = onDismiss) {
@@ -93,6 +95,13 @@ fun SettingsDialog(
                 onClick = { onLanguage(AppLanguage.English) }
             )
             Spacer(Modifier.height(20.dp))
+            PrimaryGameButton(
+                text = strings.howToPlay,
+                onClick = onShowHowToPlay,
+                containerColor = Violet,
+                contentColor = Cream
+            )
+            Spacer(Modifier.height(10.dp))
             PrimaryGameButton(text = strings.close, onClick = onDismiss)
         }
     }

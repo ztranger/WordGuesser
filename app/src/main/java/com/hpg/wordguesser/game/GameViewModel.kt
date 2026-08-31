@@ -55,7 +55,8 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 targetScore = setup.targetScore,
                 teamCount = setup.teamCount,
                 teamNames = setup.teamNames,
-                roundDurationSec = setup.roundDurationSec
+                roundDurationSec = setup.roundDurationSec,
+                showHowToPlay = !setupPreferences.hasSeenHowToPlay()
             )
         }
         reloadCategories(language)
@@ -73,6 +74,15 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         }
         persistSetup()
         reloadCategories(language)
+    }
+
+    fun showHowToPlay() {
+        _uiState.update { it.copy(showHowToPlay = true) }
+    }
+
+    fun dismissHowToPlay() {
+        setupPreferences.setHowToPlaySeen()
+        _uiState.update { it.copy(showHowToPlay = false) }
     }
 
     fun setTargetScore(score: Int) {

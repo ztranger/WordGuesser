@@ -58,6 +58,8 @@ class GameStringsTest {
         assertEquals("First to 20 words", strings.playUntilWords(20))
         assertEquals("1 pack selected", strings.selectedPacksLabel(1))
         assertEquals("3 packs selected", strings.selectedPacksLabel(3))
+        assertEquals("How to play", strings.howToPlay)
+        assertEquals("Got it", strings.howToPlayGotIt)
     }
 
     @Test
@@ -73,6 +75,8 @@ class GameStringsTest {
         assertEquals("Города и страны", strings.topicTitle("cities"))
         assertEquals("Выбрано: 4", strings.selectedPacksLabel(4))
         assertEquals("Ещё", strings.categoryTabLabel(CategoryTab.Other))
+        assertEquals("Как играть", strings.howToPlay)
+        assertEquals("Понятно", strings.howToPlayGotIt)
     }
 
     @Test

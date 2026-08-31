@@ -17,6 +17,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import com.hpg.wordguesser.game.GameScreen
 import com.hpg.wordguesser.game.GameViewModel
 import com.hpg.wordguesser.ui.screens.CountdownScreen
+import com.hpg.wordguesser.ui.screens.HowToPlayScreen
 import com.hpg.wordguesser.ui.screens.PlayScreen
 import com.hpg.wordguesser.ui.screens.RoundResultsScreen
 import com.hpg.wordguesser.ui.screens.ScoreboardScreen
@@ -52,6 +53,7 @@ fun WordGuesserApp(viewModel: GameViewModel = viewModel()) {
                 onToggleCategory = viewModel::toggleCategory,
                 onSetTabCategories = viewModel::setTabCategoriesSelected,
                 onLanguage = viewModel::setLanguage,
+                onShowHowToPlay = viewModel::showHowToPlay,
                 onStart = viewModel::startGame
             )
             GameScreen.Countdown -> CountdownScreen(state)
@@ -68,6 +70,12 @@ fun WordGuesserApp(viewModel: GameViewModel = viewModel()) {
                 state = state,
                 onStartNextRound = viewModel::startNextRound,
                 onNewGame = viewModel::newGame
+            )
+        }
+        if (state.showHowToPlay) {
+            HowToPlayScreen(
+                strings = state.strings,
+                onFinished = viewModel::dismissHowToPlay
             )
         }
     }

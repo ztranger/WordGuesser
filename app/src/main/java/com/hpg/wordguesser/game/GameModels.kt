@@ -45,7 +45,8 @@ data class GameUiState(
     val gameOver: Boolean = false,
     val winnerIndex: Int? = null,
     val wordsReady: Boolean = false,
-    val language: AppLanguage = AppLanguage.English
+    val language: AppLanguage = AppLanguage.English,
+    val showHowToPlay: Boolean = false
 ) {
     val currentTeam: Team?
         get() = teams.getOrNull(currentTeamIndex)

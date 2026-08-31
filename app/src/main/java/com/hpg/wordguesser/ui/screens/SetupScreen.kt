@@ -66,6 +66,7 @@ fun SetupScreen(
     onToggleCategory: (String) -> Unit,
     onSetTabCategories: (CategoryTab, Boolean) -> Unit,
     onLanguage: (AppLanguage) -> Unit,
+    onShowHowToPlay: () -> Unit,
     onStart: () -> Unit
 ) {
     val strings = state.strings
@@ -79,6 +80,10 @@ fun SetupScreen(
             language = state.language,
             strings = strings,
             onLanguage = onLanguage,
+            onShowHowToPlay = {
+                settingsOpen = false
+                onShowHowToPlay()
+            },
             onDismiss = { settingsOpen = false }
         )
     }

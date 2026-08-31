@@ -40,6 +40,12 @@ class SetupPreferences(context: Context) {
         prefs.edit().putString(KEY_LANGUAGE, language.code).apply()
     }
 
+    fun hasSeenHowToPlay(): Boolean = prefs.getBoolean(KEY_HOW_TO_PLAY_SEEN, false)
+
+    fun setHowToPlaySeen() {
+        prefs.edit().putBoolean(KEY_HOW_TO_PLAY_SEEN, true).apply()
+    }
+
     companion object {
         private const val PREFS_NAME = "game_setup"
         private const val KEY_TARGET_SCORE = "target_score"
@@ -48,6 +54,7 @@ class SetupPreferences(context: Context) {
         private const val KEY_ROUND_DURATION = "round_duration"
         private const val KEY_CATEGORIES = "selected_categories"
         private const val KEY_LANGUAGE = "language"
+        private const val KEY_HOW_TO_PLAY_SEEN = "how_to_play_seen"
         private const val NAME_SEPARATOR = "\u001F"
     }
 }
