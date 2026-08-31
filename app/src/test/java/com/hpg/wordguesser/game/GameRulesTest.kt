@@ -69,12 +69,39 @@ class GameRulesTest {
     }
 
     @Test
-    fun wordDeckCyclesWithoutRepeatingUntilExhausted() {
+    fun wordDeckDoesNotRepeatUntilPoolIsExhausted() {
         val deck = WordDeck(listOf("а" to "к", "б" to "к", "в" to "к"))
-        val firstPass = listOf(deck.next().first, deck.next().first, deck.next().first).toSet()
-        assertEquals(setOf("а", "б", "в"), firstPass)
+        val firstPass = List(3) { deck.next().first }
+        assertEquals(setOf("а", "б", "в"), firstPass.toSet())
+        assertEquals(3, firstPass.distinct().size)
+    }
+
+    @Test
+    fun wordDeckRefillsAndReshufflesWhenPoolIsExhausted() {
+        val deck = WordDeck(listOf("а" to "к", "б" to "к", "в" to "к"))
+        val firstPass = List(3) { deck.next().first }
         val continued = deck.next().first
         assertTrue(continued in firstPass)
+        assertTrue(continued != firstPass.last())
+        val secondPass = listOf(continued) + List(2) { deck.next().first }
+        assertEquals(setOf("а", "б", "в"), secondPass.toSet())
+    }
+
+    @Test
+    fun wordDeckTreatsDuplicateWordsAsOneInThePool() {
+        val deck = WordDeck(
+            listOf("кот" to "животные", "кот" to "еда", "пёс" to "животные")
+        )
+        val firstPass = List(2) { deck.next().first }.toSet()
+        assertEquals(setOf("кот", "пёс"), firstPass)
+        assertTrue(deck.next().first in firstPass)
+    }
+
+    @Test
+    fun wordDeckSingleWordRepeatsAfterThePoolIsExhausted() {
+        val deck = WordDeck(listOf("только" to "к"))
+        assertEquals("только", deck.next().first)
+        assertEquals("только", deck.next().first)
     }
 
     @Test

@@ -74,23 +74,34 @@ object GameRules {
 }
 
 class WordDeck(words: List<Pair<String, String>>) {
-    private val source: List<Pair<String, String>> = words
+    private val pool: List<Pair<String, String>> = words.distinctBy { it.first.lowercase() }
     private val remaining = ArrayDeque<Pair<String, String>>()
+    private var lastDrawn: Pair<String, String>? = null
 
     init {
-        reshuffle()
+        refill(avoid = null)
     }
 
-    val isEmpty: Boolean get() = source.isEmpty()
+    val isEmpty: Boolean get() = pool.isEmpty()
 
     fun next(): Pair<String, String> {
-        if (source.isEmpty()) return "—" to ""
-        if (remaining.isEmpty()) reshuffle()
-        return remaining.removeFirst()
+        if (pool.isEmpty()) return "—" to ""
+        if (remaining.isEmpty()) refill(avoid = lastDrawn)
+        val word = remaining.removeFirst()
+        lastDrawn = word
+        return word
     }
 
-    private fun reshuffle() {
+    private fun refill(avoid: Pair<String, String>?) {
         remaining.clear()
-        remaining.addAll(source.shuffled())
+        val shuffled = pool.shuffled().toMutableList()
+        if (
+            avoid != null &&
+            shuffled.size > 1 &&
+            shuffled.first().first.equals(avoid.first, ignoreCase = true)
+        ) {
+            shuffled.add(shuffled.removeAt(0))
+        }
+        remaining.addAll(shuffled)
     }
 }
