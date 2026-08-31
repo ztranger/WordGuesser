@@ -27,6 +27,7 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     private var roundJob: Job? = null
     private var deck = WordDeck(emptyList())
+    private val timerSounds = TimerSounds()
 
     init {
         val knownIds = WordRepository.knownCategoryIds
@@ -220,6 +221,12 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
+    override fun onCleared() {
+        roundJob?.cancel()
+        timerSounds.release()
+        super.onCleared()
+    }
+
     fun newGame() {
         roundJob?.cancel()
         _uiState.update { state ->
@@ -294,11 +301,18 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 )
             }
             val startedAt = SystemClock.elapsedRealtime()
+            var lastWarningSecond = -1
             while (isActive) {
                 val remaining = durationMs - (SystemClock.elapsedRealtime() - startedAt)
                 if (remaining <= 0L) {
+                    timerSounds.playRoundEnd()
                     finishRound()
                     break
+                }
+                val warningSecond = GameRules.timerWarningSecond(remaining)
+                if (warningSecond != null && warningSecond != lastWarningSecond) {
+                    lastWarningSecond = warningSecond
+                    timerSounds.playWarningTick(warningSecond)
                 }
                 _uiState.update { it.copy(remainingMs = remaining) }
                 delay(100)

@@ -115,4 +115,16 @@ class GameRulesTest {
         val names = GameRules.adjustTeamNames(listOf("Команда 1", "Foxes"), 2, AppLanguage.English)
         assertEquals(listOf("Team 1", "Foxes"), names)
     }
+
+    @Test
+    fun timerWarningBeepsOncePerDisplayedSecondInTheLastTen() {
+        assertNull(GameRules.timerWarningSecond(10_001))
+        assertEquals(10, GameRules.timerWarningSecond(10_000))
+        assertEquals(10, GameRules.timerWarningSecond(9_001))
+        assertEquals(9, GameRules.timerWarningSecond(9_000))
+        assertEquals(1, GameRules.timerWarningSecond(1_000))
+        assertEquals(1, GameRules.timerWarningSecond(1))
+        assertNull(GameRules.timerWarningSecond(0))
+        assertNull(GameRules.timerWarningSecond(-50))
+    }
 }

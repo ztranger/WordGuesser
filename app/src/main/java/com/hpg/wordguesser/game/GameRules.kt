@@ -4,6 +4,7 @@ object GameRules {
     val targetScoreOptions = listOf(10, 15, 20, 30, 40, 50, 75, 100)
     val teamCountOptions = (2..6).toList()
     val roundDurationOptions = listOf(30, 60, 90)
+    const val TIMER_WARNING_SECONDS = 10
 
     fun nextTeamIndex(currentIndex: Int, teamCount: Int): Int =
         (currentIndex + 1) % teamCount
@@ -70,6 +71,16 @@ object GameRules {
                 else -> existing
             }
         }
+    }
+
+    /**
+     * Second shown on the play timer that should beep once, matching the red countdown.
+     * Null outside the last [TIMER_WARNING_SECONDS] and when the round is already over.
+     */
+    fun timerWarningSecond(remainingMs: Long): Int? {
+        if (remainingMs <= 0L) return null
+        val secondsLeft = ((remainingMs + 999L) / 1000L).toInt()
+        return secondsLeft.takeIf { it in 1..TIMER_WARNING_SECONDS }
     }
 }
 
