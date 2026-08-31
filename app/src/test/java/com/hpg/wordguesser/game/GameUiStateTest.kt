@@ -30,4 +30,19 @@ class GameUiStateTest {
         assertEquals(1, state.selectedCountOnTab(CategoryTab.Hard))
         assertEquals(1, state.selectedCountOnTab(CategoryTab.Other))
     }
+
+    @Test
+    fun selectAllOnTabLeavesOtherTabsIntact() {
+        val next = state.withTabSelection(CategoryTab.Medium, selectAll = true)
+        assertEquals(
+            setOf("animals_easy", "animals_medium", "animals_hard", "transport"),
+            next
+        )
+    }
+
+    @Test
+    fun clearTabLeavesOtherTabsIntact() {
+        val next = state.withTabSelection(CategoryTab.Easy, selectAll = false)
+        assertEquals(setOf("animals_hard", "transport"), next)
+    }
 }

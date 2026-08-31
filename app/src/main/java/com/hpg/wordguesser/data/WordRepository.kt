@@ -144,6 +144,11 @@ class WordRepository(private val context: Context) {
 
         val knownCategoryIds: Set<String> = definitions.map { it.id }.toSet()
 
+        val defaultCategoryIds: Set<String> = definitions
+            .filter { it.difficulty == null || it.difficulty == WordDifficulty.Easy }
+            .map { it.id }
+            .toSet()
+
         private fun split(topicId: String): List<CategoryDefinition> = listOf(
             CategoryDefinition(topicId, WordDifficulty.Easy),
             CategoryDefinition(topicId, WordDifficulty.Medium),

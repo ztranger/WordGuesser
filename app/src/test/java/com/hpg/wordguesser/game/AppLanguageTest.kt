@@ -50,6 +50,8 @@ class GameStringsTest {
         assertEquals("Easy", strings.difficultyLabel(WordDifficulty.Easy))
         assertEquals("More", strings.categoryTabLabel(CategoryTab.Other))
         assertEquals("Start", strings.start)
+        assertEquals("Select all", strings.selectAllOnTab)
+        assertEquals("Clear", strings.clearTab)
         assertEquals("Team 1", strings.teamName(1))
         assertEquals("+1 point this round", strings.roundPoints(1))
         assertEquals("+2 points this round", strings.roundPoints(2))

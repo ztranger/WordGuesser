@@ -30,11 +30,13 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         val knownIds = WordRepository.knownCategoryIds
+        val defaultIds = WordRepository.defaultCategoryIds
         val language = AppLanguage.resolve(setupPreferences.loadLanguageCode())
         val setup = SetupSettings.sanitize(
-            raw = setupPreferences.load() ?: SetupSettings(selectedCategoryIds = knownIds),
+            raw = setupPreferences.load() ?: SetupSettings(selectedCategoryIds = defaultIds),
             knownCategoryIds = knownIds,
-            language = language
+            language = language,
+            defaultCategoryIds = defaultIds
         )
         val strings = GameStrings.forLanguage(language)
         _uiState.update {
@@ -111,6 +113,13 @@ class GameViewModel(application: Application) : AndroidViewModel(application) {
                 selected.remove(id)
             }
             state.copy(selectedCategoryIds = selected)
+        }
+        persistSetup()
+    }
+
+    fun setTabCategoriesSelected(tab: CategoryTab, selected: Boolean) {
+        _uiState.update { state ->
+            state.copy(selectedCategoryIds = state.withTabSelection(tab, selected))
         }
         persistSetup()
     }

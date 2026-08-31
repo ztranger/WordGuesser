@@ -1,6 +1,9 @@
 package com.hpg.wordguesser.game
 
+import com.hpg.wordguesser.data.WordRepository
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertTrue
 import org.junit.Test
 
 class SetupSettingsTest {
@@ -58,13 +61,15 @@ class SetupSettingsTest {
     }
 
     @Test
-    fun emptySavedCategoriesFallBackToAll() {
+    fun emptySavedCategoriesFallBackToDefaults() {
+        val defaults = setOf("animals")
         val setup = SetupSettings.sanitize(
             raw = SetupSettings(selectedCategoryIds = emptySet()),
             knownCategoryIds = known,
-            language = AppLanguage.English
+            language = AppLanguage.English,
+            defaultCategoryIds = defaults
         )
-        assertEquals(known, setup.selectedCategoryIds)
+        assertEquals(defaults, setup.selectedCategoryIds)
     }
 
     @Test
@@ -85,5 +90,21 @@ class SetupSettingsTest {
             setOf("animals_easy", "animals_medium", "animals_hard", "food_easy"),
             setup.selectedCategoryIds
         )
+    }
+
+    @Test
+    fun firstLaunchDefaultsToEasyAndOtherPacks() {
+        val defaults = WordRepository.defaultCategoryIds
+        val setup = SetupSettings.sanitize(
+            raw = SetupSettings(selectedCategoryIds = emptySet()),
+            knownCategoryIds = WordRepository.knownCategoryIds,
+            language = AppLanguage.English,
+            defaultCategoryIds = defaults
+        )
+        assertEquals(defaults, setup.selectedCategoryIds)
+        assertTrue("animals_easy" in setup.selectedCategoryIds)
+        assertTrue("transport" in setup.selectedCategoryIds)
+        assertFalse("animals_medium" in setup.selectedCategoryIds)
+        assertFalse("animals_hard" in setup.selectedCategoryIds)
     }
 }

@@ -11,13 +11,18 @@ data class SetupSettings(
         fun sanitize(
             raw: SetupSettings,
             knownCategoryIds: Set<String>,
-            language: AppLanguage
+            language: AppLanguage,
+            defaultCategoryIds: Set<String> = knownCategoryIds
         ): SetupSettings {
             val teamCount = raw.teamCount.takeIf { it in GameRules.teamCountOptions } ?: 2
             val targetScore = raw.targetScore.takeIf { it in GameRules.targetScoreOptions } ?: 20
             val roundDurationSec =
                 raw.roundDurationSec.takeIf { it in GameRules.roundDurationOptions } ?: 60
-            val selected = migrateCategoryIds(raw.selectedCategoryIds, knownCategoryIds)
+            val selected = migrateCategoryIds(
+                saved = raw.selectedCategoryIds,
+                knownCategoryIds = knownCategoryIds,
+                defaultCategoryIds = defaultCategoryIds
+            )
             return SetupSettings(
                 targetScore = targetScore,
                 teamCount = teamCount,
@@ -27,8 +32,13 @@ data class SetupSettings(
             )
         }
 
-        fun migrateCategoryIds(saved: Set<String>, knownCategoryIds: Set<String>): Set<String> {
-            if (saved.isEmpty()) return knownCategoryIds
+        fun migrateCategoryIds(
+            saved: Set<String>,
+            knownCategoryIds: Set<String>,
+            defaultCategoryIds: Set<String> = knownCategoryIds
+        ): Set<String> {
+            val defaults = defaultCategoryIds.intersect(knownCategoryIds).ifEmpty { knownCategoryIds }
+            if (saved.isEmpty()) return defaults
             val mapped = saved.flatMap { id ->
                 when {
                     id in knownCategoryIds -> listOf(id)
@@ -36,7 +46,7 @@ data class SetupSettings(
                         .filter { it in knownCategoryIds }
                 }
             }.toSet()
-            return mapped.ifEmpty { knownCategoryIds }
+            return mapped.ifEmpty { defaults }
         }
     }
 }

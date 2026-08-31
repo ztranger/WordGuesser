@@ -64,4 +64,9 @@ data class GameUiState(
 
     fun selectedCountOnTab(tab: CategoryTab): Int =
         categories.count { it.difficulty == tab.difficulty && it.id in selectedCategoryIds }
+
+    fun withTabSelection(tab: CategoryTab, selectAll: Boolean): Set<String> {
+        val tabIds = categoriesOnTab(tab).map { it.id }.toSet()
+        return if (selectAll) selectedCategoryIds + tabIds else selectedCategoryIds - tabIds
+    }
 }

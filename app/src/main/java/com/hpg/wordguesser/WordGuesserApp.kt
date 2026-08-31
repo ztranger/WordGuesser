@@ -50,6 +50,7 @@ fun WordGuesserApp(viewModel: GameViewModel = viewModel()) {
                 onTeamName = viewModel::setTeamName,
                 onDuration = viewModel::setRoundDuration,
                 onToggleCategory = viewModel::toggleCategory,
+                onSetTabCategories = viewModel::setTabCategoriesSelected,
                 onLanguage = viewModel::setLanguage,
                 onStart = viewModel::startGame
             )

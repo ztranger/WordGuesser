@@ -1,6 +1,7 @@
 package com.hpg.wordguesser.ui.screens
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -63,6 +64,7 @@ fun SetupScreen(
     onTeamName: (Int, String) -> Unit,
     onDuration: (Int) -> Unit,
     onToggleCategory: (String) -> Unit,
+    onSetTabCategories: (CategoryTab, Boolean) -> Unit,
     onLanguage: (AppLanguage) -> Unit,
     onStart: () -> Unit
 ) {
@@ -173,12 +175,39 @@ fun SetupScreen(
                         label = { strings.categoryTabLabel(it) },
                         onSelect = { categoryTab = it }
                     )
-                    Text(
-                        text = strings.selectedPacksLabel(state.selectedCategoryIds.size),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = CreamMuted,
-                        modifier = Modifier.padding(top = 10.dp, bottom = 4.dp)
-                    )
+                    Row(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(top = 10.dp, bottom = 4.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = strings.selectedPacksLabel(state.selectedCategoryIds.size),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = CreamMuted,
+                            modifier = Modifier.weight(1f)
+                        )
+                        Text(
+                            text = strings.selectAllOnTab,
+                            style = MaterialTheme.typography.labelLarge,
+                            color = Sunset,
+                            fontWeight = FontWeight.SemiBold,
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(10.dp))
+                                .clickable { onSetTabCategories(selectedTab, true) }
+                                .padding(horizontal = 8.dp, vertical = 6.dp)
+                        )
+                        Text(
+                            text = strings.clearTab,
+                            style = MaterialTheme.typography.labelLarge,
+                            color = Sunset,
+                            fontWeight = FontWeight.SemiBold,
+                            modifier = Modifier
+                                .clip(RoundedCornerShape(10.dp))
+                                .clickable { onSetTabCategories(selectedTab, false) }
+                                .padding(horizontal = 8.dp, vertical = 6.dp)
+                        )
+                    }
                 }
             }
             items(visibleCategories, key = { it.id }) { category ->
