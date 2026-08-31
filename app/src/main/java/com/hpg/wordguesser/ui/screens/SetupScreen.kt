@@ -21,6 +21,11 @@ import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -31,6 +36,8 @@ import com.hpg.wordguesser.ui.components.CategoryCard
 import com.hpg.wordguesser.ui.components.ChipRow
 import com.hpg.wordguesser.ui.components.PrimaryGameButton
 import com.hpg.wordguesser.ui.components.SectionTitle
+import com.hpg.wordguesser.ui.components.SettingsButton
+import com.hpg.wordguesser.ui.components.SettingsDialog
 import com.hpg.wordguesser.ui.theme.Cream
 import com.hpg.wordguesser.ui.theme.CreamMuted
 import com.hpg.wordguesser.ui.theme.Ink
@@ -51,6 +58,15 @@ fun SetupScreen(
 ) {
     val strings = state.strings
     val canStart = state.wordsReady && state.selectedCategoryIds.isNotEmpty()
+    var settingsOpen by rememberSaveable { mutableStateOf(false) }
+    if (settingsOpen) {
+        SettingsDialog(
+            language = state.language,
+            strings = strings,
+            onLanguage = onLanguage,
+            onDismiss = { settingsOpen = false }
+        )
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -66,29 +82,27 @@ fun SetupScreen(
         ) {
             item(span = { GridItemSpan(2) }) {
                 Column {
-                    Text(
-                        text = strings.appTitle,
-                        style = MaterialTheme.typography.headlineLarge,
-                        color = Cream,
-                        fontWeight = FontWeight.Bold
-                    )
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Text(
+                            text = strings.appTitle,
+                            style = MaterialTheme.typography.headlineLarge,
+                            color = Cream,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier.weight(1f)
+                        )
+                        SettingsButton(
+                            contentDescription = strings.settings,
+                            onClick = { settingsOpen = true }
+                        )
+                    }
                     Text(
                         text = strings.appSubtitle,
                         style = MaterialTheme.typography.bodyLarge,
                         color = CreamMuted,
                         modifier = Modifier.padding(top = 6.dp, bottom = 8.dp)
-                    )
-                    SectionTitle(strings.language)
-                    ChipRow(
-                        options = listOf(
-                            strings.languageRussian to (state.language == AppLanguage.Russian),
-                            strings.languageEnglish to (state.language == AppLanguage.English)
-                        ),
-                        onSelect = { index ->
-                            onLanguage(
-                                if (index == 0) AppLanguage.Russian else AppLanguage.English
-                            )
-                        }
                     )
                     SectionTitle(strings.playUntil)
                     ChipRow(
