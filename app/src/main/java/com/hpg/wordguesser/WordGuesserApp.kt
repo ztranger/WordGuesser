@@ -3,6 +3,7 @@ package com.hpg.wordguesser
 import android.view.WindowManager
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.systemBarsPadding
@@ -20,6 +21,7 @@ import com.hpg.wordguesser.ui.screens.PlayScreen
 import com.hpg.wordguesser.ui.screens.RoundResultsScreen
 import com.hpg.wordguesser.ui.screens.ScoreboardScreen
 import com.hpg.wordguesser.ui.screens.SetupScreen
+import com.hpg.wordguesser.ui.theme.Ink
 
 @Composable
 fun WordGuesserApp(viewModel: GameViewModel = viewModel()) {
@@ -37,6 +39,7 @@ fun WordGuesserApp(viewModel: GameViewModel = viewModel()) {
     Box(
         modifier = Modifier
             .fillMaxSize()
+            .background(Ink)
             .systemBarsPadding()
     ) {
         when (state.screen) {
