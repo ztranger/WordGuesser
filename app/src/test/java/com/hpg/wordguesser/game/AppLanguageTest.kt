@@ -60,6 +60,7 @@ class GameStringsTest {
         assertEquals("3 packs selected", strings.selectedPacksLabel(3))
         assertEquals("How to play", strings.howToPlay)
         assertEquals("Got it", strings.howToPlayGotIt)
+        assertEquals("Done", strings.done)
         assertEquals("Another round so every team can play", strings.catchUpHint)
     }
 
@@ -78,6 +79,7 @@ class GameStringsTest {
         assertEquals("Ещё", strings.categoryTabLabel(CategoryTab.Other))
         assertEquals("Как играть", strings.howToPlay)
         assertEquals("Понятно", strings.howToPlayGotIt)
+        assertEquals("Готово", strings.done)
         assertEquals("Ещё раунд, чтобы все сыграли", strings.catchUpHint)
     }
 

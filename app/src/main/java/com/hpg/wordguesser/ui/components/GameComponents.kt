@@ -145,9 +145,10 @@ fun CategoryCard(
     difficultyLabel: String? = null,
     difficulty: WordDifficulty? = null
 ) {
-    val border = if (selected) Sunset else Color.Transparent
+    val accent = difficulty?.difficultyAccent() ?: Violet
+    val border = if (selected) accent else Color.Transparent
     val background by animateColorAsState(
-        if (selected) Sunset.copy(alpha = 0.18f) else InkCard,
+        if (selected) accent.copy(alpha = 0.18f) else InkCard,
         label = "catBg"
     )
     val difficultyColor = difficulty?.difficultyAccent() ?: Cream.copy(alpha = 0.7f)
