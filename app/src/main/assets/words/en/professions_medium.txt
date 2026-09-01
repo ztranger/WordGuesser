@@ -50,3 +50,33 @@ masseur
 fitness trainer
 volunteer
 spy
+oncologist
+neurologist
+therapist
+radiologist
+lab technician
+paramedic ambulance
+firefighter chief
+police detective
+crime investigator
+prosecutor
+defense attorney
+bailiff
+prison guard
+social worker
+hr manager
+project manager
+product manager
+ux designer
+web developer
+data analyst
+qa engineer
+devops
+sysadmin office
+network engineer
+electrical engineer
+civil engineer
+mechanical engineer
+chemical engineer
+interior designer
+fashion designer

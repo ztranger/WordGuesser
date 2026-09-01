@@ -60,3 +60,33 @@ bird
 fly
 mosquito
 ladybug
+lamb
+calf
+foal
+chick
+duckling
+gosling
+cub
+puppy dog
+kitten cat
+reindeer
+polar bear
+brown bear
+white shark
+goldfish bowl
+canary
+pigeon
+dove
+swallow
+magpie
+wood louse
+earthworm
+slug
+centipede
+ladybird
+wasp nest
+beehive
+silkworm
+moth
+fire ant
+dragonfly nymph

@@ -40,3 +40,43 @@ Caracas
 Bogota
 Quito
 La Paz
+Nuuk
+Torshavn
+Longyearbyen
+Tromso
+Kiruna
+Rovaniemi
+Inari
+Akureyri
+Thimphu
+Paro
+Male
+Victoria Seychelles
+Port Louis
+Antananarivo
+Maputo
+Gaborone
+Windhoek
+Lusaka
+Harare
+Kampala
+Kigali
+Bujumbura
+Juba
+Mogadishu
+Djibouti City
+Asmara
+Nouakchott
+Bamako
+Ouagadougou
+Niamey
+N'Djamena
+Bangui
+Libreville
+Malabo
+Sao Tome
+Praia
+Bissau
+Conakry
+Freetown
+Monrovia

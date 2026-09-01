@@ -50,3 +50,33 @@ taxi driver
 fisherman
 hunter
 miner
+chef
+driver bus
+train driver
+stewardess
+lifeguard
+swimmer pro
+footballer
+hockey player
+tennis player
+coach school
+janitor
+gardener park
+florist
+butcher
+baker shop
+barista cafe
+waiter cafe
+cook canteen
+nurse clinic
+doctor clinic
+dentist clinic
+pharmacist shop
+optician
+vet clinic
+zoo keeper
+farmer field
+milkmaid
+shepherd
+fisherman sea
+lumberjack

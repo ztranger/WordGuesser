@@ -42,3 +42,48 @@ Philosopher's Stone
 chocolate frog
 butterbeer
 owl post
+Muggle
+Dudley Dursley
+Petunia Dursley
+Vernon Dursley
+Privet Drive
+cupboard under the stairs
+Hogwarts Express
+cauldron
+robe
+pumpkin juice
+Bertie Bott's Beans
+Hagrid's hut
+Fang
+Trevor
+Percy Weasley
+Charlie Weasley
+Bill Weasley
+seeker
+keeper
+chaser
+beater
+bludger
+quaffle
+house points
+common room
+Fat Lady
+ghost
+goblin
+unicorn
+centaur
+giant
+Ministry of Magic
+Daily Prophet
+Aunt Marge
+Quirrell
+Norbert
+wizard chess
+Remembrall
+prefect
+Headmaster
+Transfiguration
+Potions class
+Herbology
+Defence Against the Dark Arts
+House Cup

@@ -50,3 +50,35 @@ machine learning
 quantum computer
 nanotechnology
 biometrics
+browser
+search engine
+tab
+bookmark
+cache
+captcha
+vpn
+proxy
+firmware
+ransomware
+malware
+phishing
+spam
+push notification
+dark mode
+incognito
+cloud drive
+sync
+backup
+digital signature
+hash
+token
+api
+sdk
+open source
+repository
+commit
+pull request
+two factor
+restore
+cookie web
+newsletter

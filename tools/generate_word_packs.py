@@ -4,6 +4,11 @@ from __future__ import annotations
 
 from pathlib import Path
 
+try:
+    from word_pack_more import MORE
+except ImportError:
+    MORE = {}
+
 ROOT = Path(r"C:\Projects\Hpg\WordGuesser\app\src\main\assets\words")
 RETIRED = [
     "animals.txt",
@@ -2256,6 +2261,30 @@ delight|восторг
 }
 
 
+def merged_packs() -> dict[tuple[str, str | None], list[tuple[str, str]]]:
+    extra_keys = set(MORE) - set(PACKS)
+    if extra_keys:
+        raise SystemExit(f"MORE has unknown packs: {extra_keys}")
+    missing = set(PACKS) - set(MORE)
+    if missing:
+        raise SystemExit(f"MORE missing packs: {missing}")
+    out: dict[tuple[str, str | None], list[tuple[str, str]]] = {}
+    for key, words in PACKS.items():
+        extra = MORE[key]
+        seen_en = {english.casefold() for english, _ in words}
+        seen_ru = {russian.casefold() for _, russian in words}
+        for english, russian in extra:
+            if english.casefold() in seen_en or russian.casefold() in seen_ru:
+                raise SystemExit(f"Duplicate extra in {key}: {english} | {russian}")
+            seen_en.add(english.casefold())
+            seen_ru.add(russian.casefold())
+        combined = words + extra
+        if not 80 <= len(combined) <= 150:
+            raise SystemExit(f"{key} has {len(combined)} words, need 80-150")
+        out[key] = combined
+    return out
+
+
 def write_pack(topic: str, difficulty: str | None, words: list[tuple[str, str]]) -> None:
     key = (topic, difficulty)
     en_title, ru_title = TITLES[key]
@@ -2278,9 +2307,8 @@ def main() -> None:
         missing = expected - actual
         extra = actual - expected
         raise SystemExit(f"Pack mismatch missing={missing} extra={extra}")
-    for key, words in PACKS.items():
-        if len(words) < 35:
-            raise SystemExit(f"Too few words in {key}: {len(words)}")
+    packs = merged_packs()
+    for key, words in packs.items():
         write_pack(*key, words)
     for lang in ("en", "ru"):
         for name in RETIRED:
@@ -2288,7 +2316,7 @@ def main() -> None:
             if path.exists():
                 path.unlink()
                 print("removed", path)
-    print("packs", len(PACKS))
+    print("packs", len(packs), "min", min(len(w) for w in packs.values()), "max", max(len(w) for w in packs.values()))
 
 
 if __name__ == "__main__":

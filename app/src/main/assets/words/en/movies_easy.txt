@@ -40,3 +40,45 @@ Transformers
 Jaws
 Back to the Future
 Ghostbusters
+Disney
+Pixar
+Marvel
+DC Comics
+Minions
+Despicable Me
+Ice Age
+Madagascar
+Kung Fu Panda
+How to Train Your Dragon
+Zootopia
+Inside Out
+Up
+Coco
+Encanto
+Turning Red
+Luca
+Soul
+Brave
+Ratatouille
+Wall-E
+Monsters Inc
+The Incredibles
+Finding Dory
+Nemo
+Elsa
+Anna
+Olaf
+Simba
+Nala
+Woody
+Buzz Lightyear
+Shrek the ogre
+Donkey
+Fiona
+Puss
+Dory
+Marlin
+Woody cowboy
+Buzz
+Mike Wazowski
+Sulley

@@ -40,3 +40,44 @@ Stravinsky
 Shostakovich
 Prokofiev
 Rachmaninoff
+isorhythm
+hocket
+organum
+motet
+madrigal
+canzona
+ricercar
+toccata
+passacaglia
+chaconne
+sarabande
+gigue
+allemande
+courante
+minuet
+gavotte
+bourree
+siciliana
+tarantella
+habanera
+milonga
+fado
+rebetiko
+klezmer
+csardas
+joik
+kulning
+morin khuur
+qanun
+oud
+duduk
+zurna
+kamancheh
+tar lute
+ney flute
+verbunkos
+sevdah
+tango nuevo
+balafon
+mbira
+kora harp

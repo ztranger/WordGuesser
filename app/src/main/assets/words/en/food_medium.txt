@@ -50,3 +50,44 @@ pilaf
 nuggets
 muffin
 brownie
+carbonara
+bolognese
+pesto
+minestrone
+gazpacho soup
+miso
+udon
+soba
+pho soup
+pad thai
+spring roll
+samosa
+naan
+curry
+tikka masala
+biryani
+paella rice
+tapas
+paella pan
+brie
+camembert
+mozzarella
+parmesan
+feta
+gouda
+cheddar
+ricotta
+mascarpone
+prosciutto
+salami
+chorizo
+tartare steak
+carpaccio beef
+bruschetta
+caprese
+greek salad
+caesar salad
+olivier salad
+vinaigrette salad
+compote drink
+kvass

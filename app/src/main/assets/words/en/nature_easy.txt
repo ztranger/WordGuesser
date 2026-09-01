@@ -50,3 +50,33 @@ mushroom
 icicle
 dawn
 sunset
+bush
+branch
+root
+seed
+berry
+cone
+acorn
+chestnut
+apple tree
+cherry tree
+spruce
+fir
+linden
+poplar
+ash tree
+elm
+willow tree
+lily
+daisy
+chamomile
+poppy
+violet flower
+carnation
+lilac
+jasmine
+mint
+nettle
+dandelion fluff
+snowflake
+puddle

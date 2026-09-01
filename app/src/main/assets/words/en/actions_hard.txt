@@ -40,3 +40,43 @@ solder
 weld
 gild
 emboss
+transliterate
+transcribe
+calque
+gloss
+lemmatize
+tokenize
+parse syntax
+compile code
+link binary
+profile code
+benchmark
+fuzz test
+deadlock
+livelock
+debounce
+throttle calls
+memoize
+currying
+hoist
+shim
+polyfill
+transpile
+minify
+tree-shake
+hydrate ui
+annotate
+instrument code
+canary release
+blue green deploy
+feature flag
+roll back
+hot patch
+ship to prod
+page oncall
+war room
+postmortem
+runbook
+toil work
+sre watch
+incident review

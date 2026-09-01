@@ -40,3 +40,44 @@ English
 PE
 art
 music
+timetable
+homeroom
+form teacher
+head teacher
+detention
+skip class
+tardy
+attendance
+report card
+parent meeting
+open day
+olympiad school
+essay
+dictation
+oral exam
+cheat sheet
+calculator
+compasses
+highlighter
+binder
+folder
+locker
+assembly hall
+recess
+afterschool
+tutor
+presentation
+project
+supply teacher
+semester
+quarter term
+graduation
+diploma
+scholarship
+dormitory
+campus
+lecture
+seminar
+lab work
+dean
+faculty

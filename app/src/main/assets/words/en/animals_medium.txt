@@ -51,3 +51,41 @@ lobster
 shrimp
 beetle
 caterpillar
+pronghorn
+caribou
+gazelle
+impala
+wildebeest
+antelope
+ibis
+crane bird
+swan goose
+cormorant
+puffin
+albatross chick
+gecko
+skink
+monitor lizard
+salamander
+newt
+tree frog
+bullfrog
+stingray
+moray eel
+clownfish
+swordfish
+tuna
+salmon
+trout
+pike
+perch
+carp
+catfish river
+squid
+cuttlefish
+nautilus
+hermit crab
+barnacle
+sea urchin
+sea cucumber
+coral polyp

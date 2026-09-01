@@ -50,3 +50,43 @@ pie
 sandwich
 chips
 popcorn
+breakfast
+lunch
+dinner
+snack
+toast
+cereal
+cornflakes
+omelette easy
+fried egg
+boiled egg
+scrambled eggs
+mashed potatoes
+fried chicken
+kebab
+pizza slice
+cheeseburger
+nugget
+corn
+peas
+beans
+cabbage
+beet
+radish
+lemon
+lime
+cherry
+plum
+melon
+kiwi fruit
+coconut
+walnut
+hazelnut
+almond
+peanut
+sunflower seeds
+ketchup
+mayonnaise sauce
+salt
+pepper
+sugar

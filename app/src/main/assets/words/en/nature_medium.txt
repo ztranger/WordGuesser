@@ -59,3 +59,26 @@ nest
 blizzard
 drought
 flood
+ridge
+saddle mountain
+foothills
+piedmont
+alluvial fan
+floodplain
+oxbow
+meander
+rapids
+waterfall cascade
+plunge pool
+cirque
+arete
+horn peak
+hanging valley
+tarn
+esker
+drumlin
+kame
+outwash
+loess
+laterite
+bauxite

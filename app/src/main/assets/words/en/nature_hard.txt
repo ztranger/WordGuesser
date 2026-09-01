@@ -40,3 +40,44 @@ biosphere
 ecosystem
 plankton
 humus
+inselberg
+butte
+mesa
+cuesta
+hogback
+graben
+horst
+rift valley
+subduction
+obduction
+ophiolite
+flysch
+molasse
+turbidite
+varve
+tillite
+dropstone
+erratic
+roche moutonnee
+striae
+cryoturbation
+pingo
+palsa
+thermokarst
+alass
+naled
+aufeis
+polynya
+sastrugi
+firn line
+bergschrund
+serac
+crevasse
+moulin
+nunatak
+ablation
+calving
+ice shelf
+pack ice
+fast ice
+lead ice

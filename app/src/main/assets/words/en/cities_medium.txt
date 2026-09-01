@@ -40,3 +40,43 @@ Santiago
 Montreal
 Vancouver
 San Francisco
+Lyon
+Marseille
+Nice
+Bordeaux
+Toulouse
+Cologne
+Frankfurt
+Stuttgart
+Dresden
+Leipzig
+Rotterdam
+The Hague
+Antwerp
+Bruges
+Geneva
+Zurich
+Basel
+Salzburg
+Innsbruck
+Graz
+Porto
+Seville
+Valencia
+Granada
+Bilbao
+Turin
+Bologna
+Genoa
+Palermo
+Verona
+Glasgow
+Manchester
+Liverpool
+Birmingham
+Oxford
+Cambridge
+Brussels
+Krakow square
+Gdansk port
+Tallinn old town

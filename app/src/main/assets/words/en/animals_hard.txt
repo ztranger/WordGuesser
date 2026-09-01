@@ -46,3 +46,46 @@ chinchilla
 porcupine
 bison
 ibex
+quokka
+quoll
+numbat
+tasmanian devil
+cassowary
+emu
+kookaburra
+bowerbird
+shoebill
+secretary bird
+hoatzin
+kiwi bird
+kakapo
+tuatara
+olingo
+kinkajou
+coati
+binturong
+fossa
+aye-aye
+tarsier
+slow loris
+gibbon
+siamang
+proboscis monkey
+howler monkey
+capuchin
+marmoset
+uakari
+saiga
+markhor
+takin
+gerenuk
+dik-dik
+addax
+oryx
+eland
+kudu
+nyala
+okapi calf
+pangolin scale
+axolotl gill
+narwhal tusk

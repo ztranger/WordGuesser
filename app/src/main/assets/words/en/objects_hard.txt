@@ -45,3 +45,40 @@ inkwell
 blotter
 letter opener
 paperweight
+astrolabe
+quadrant
+octant
+theodolite
+alidade
+clinometer
+hygrometer
+psychrometer
+manometer
+bolometer
+spectroscope
+interferometer
+oscilloscope
+galvanometer
+ammeter
+voltmeter
+ohmmeter
+rheostat
+potentiometer
+inductor coil
+capacitor
+vacuum tube
+cathode ray
+slide rule
+planimeter
+pantograph
+camera lucida
+magic lantern
+zoetrope
+phenakistiscope
+stereoscope
+camera obscura
+daguerreotype
+cyanotype
+letterpress
+linotype
+monotype press

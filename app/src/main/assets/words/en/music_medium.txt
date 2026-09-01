@@ -40,3 +40,45 @@ Ed Sheeran
 Taylor Swift
 Billie Eilish
 BTS
+power chord
+barre chord
+riff
+solo break
+backbeat
+shuffle rhythm
+swing feel
+syncopation
+polyrhythm
+ostinato
+modulation
+key change
+relative minor
+circle of fifths
+cadence
+pedal tone
+overtone
+harmonic
+feedback
+distortion
+overdrive
+fuzz pedal
+wah pedal
+delay effect
+reverb
+chorus effect
+flanger
+phaser
+compressor
+equalizer
+limiter
+drop D
+fill drums
+motif
+theme music
+variation
+deceptive cadence
+drone note
+mix bus
+sidechain
+autotune
+vocoder

@@ -40,3 +40,43 @@ short track
 speed skating
 freestyle wrestling
 american football
+hat-trick
+own goal
+yellow card
+red card
+var
+offside trap
+counterattack
+pressing
+tiki-taka
+libero
+sweeper
+playmaker
+false nine
+boxer stance
+jab
+hook punch
+uppercut
+knockout
+technical knockout
+sparring
+dojo
+black belt
+kata
+randori
+ippon
+waza-ari
+grand slam
+ace serve
+break point
+deuce
+tie-break
+baseline
+volley shot
+smash
+lob
+drop shot
+topspin
+slice
+caddie
+eagle golf

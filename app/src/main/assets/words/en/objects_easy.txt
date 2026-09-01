@@ -68,3 +68,28 @@ remote control
 thermos
 water bottle
 keychain
+pan
+lid
+napkin
+straw
+corkscrew
+can opener
+cutting board
+oven mitt
+dishwasher
+sink
+faucet
+shower
+bathtub
+toilet
+toilet paper
+tissue
+trash can
+recycling bin
+doorbell
+doormat
+light switch
+socket
+extension cord
+power bank
+usb cable

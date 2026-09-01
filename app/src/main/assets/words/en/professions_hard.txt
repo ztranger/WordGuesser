@@ -46,3 +46,37 @@ glassblower
 beekeeper
 falconer
 lighthouse keeper
+hepatologist
+endocrinologist
+rheumatologist
+hematologist
+nephrologist
+pulmonologist
+gastroenterologist
+immunologist
+epidemiologist
+virologist
+parasitologist
+toxicologist
+forensic scientist
+ballistics expert
+graphologist
+numismatist
+philatelist
+lexicographer
+epigraphist
+papyrologist
+codicologist
+restorer fresco
+gilder artisan
+cooper
+wheelwright
+millwright
+thatched roof
+thatcher
+farrier
+saddler
+tanner
+weaver
+spinner
+dyer

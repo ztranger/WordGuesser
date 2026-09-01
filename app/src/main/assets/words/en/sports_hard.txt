@@ -40,3 +40,43 @@ acrobatics
 trampoline
 hurdles
 lasertag
+keirin
+omnium
+madison race
+cyclo-cross
+bmx racing
+trial biking
+enduro
+motocross
+speedway
+ice speedway
+skeleton sled
+luge track
+bobsled run
+nordic combined
+skiathlon
+mass start
+pursuit race
+individual time trial
+criterium
+gravel race
+ultramarathon
+ironman
+hyrox
+spartan race
+obstacle course
+parkour run
+free running
+tricking
+calisthenics
+streetlifting
+strongman
+highland games
+caber toss
+stone put
+sheaf toss
+hurling
+shinty
+camogie
+gaelic football
+australian football

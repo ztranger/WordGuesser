@@ -54,3 +54,33 @@ shake hands
 set an alarm
 sneeze
 cough
+assemble
+disassemble
+tighten
+loosen
+screw
+unscrew
+nail
+drill hole
+saw wood
+sand
+paint wall
+wallpaper
+tile
+plaster
+insulate
+ventilate
+humidify
+dehumidify
+filter
+distill
+ferment
+pickle veg
+smoke fish
+cure meat
+marinate
+knead
+proof dough
+caramelize
+blanch
+poach egg

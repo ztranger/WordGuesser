@@ -50,3 +50,36 @@ spaceship
 space shuttle
 drone
 tuk-tuk
+minibus
+marshrutka
+double-decker
+quad bike
+snowmobile
+hoverboard
+unicycle
+tandem bike
+rickshaw
+cycle rickshaw
+camper
+motorhome
+pickup truck
+van
+lorry
+tow truck
+snowplow
+garbage truck
+cement mixer
+crane truck
+forklift
+bulldozer
+excavator
+steamroller
+combine harvester
+golf cart
+caravan trailer
+tuk tuk auto
+ice cream truck
+school bus
+sleeper train
+maglev
+hydrofoil

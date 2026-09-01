@@ -40,3 +40,43 @@ weightlifting
 climbing
 parkour
 esports
+football match
+goal
+penalty
+corner kick
+offside
+referee
+whistle
+stadium
+fan
+jersey
+cleats
+goalkeeper
+forward
+defender
+midfielder
+coach team
+warmup
+stretching
+push-up
+sit-up
+plank
+squat
+dumbbell
+barbell
+treadmill
+pool
+lane
+finish line
+medal
+trophy
+champion
+olympics
+world cup
+tournament
+scoreboard
+timeout
+substitution
+fair play
+doping
+record

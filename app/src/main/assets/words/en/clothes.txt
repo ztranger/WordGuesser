@@ -50,3 +50,35 @@ turtleneck
 leggings
 tights
 bow tie
+parka
+anorak
+windbreaker
+down jacket
+fur coat
+cape
+poncho
+kimono
+sari
+hijab
+turban
+beret
+fedora
+panama hat
+ushanka
+mittens
+sash
+suspenders
+stockings
+knee socks
+ankle boots
+loafers
+oxfords
+brogues
+moccasins
+flip-flops
+clogs
+wedges
+stiletto
+platform shoes
+earmuffs
+gauntlets

@@ -50,3 +50,43 @@ ceviche
 tartare
 carpaccio
 tzatziki
+bouillabaisse
+consomme
+veloute
+beurre blanc
+hollandaise
+bearnaise
+romesco
+chimichurri
+harissa
+zaatar
+sumac
+fenugreek
+asafoetida
+galangal
+lemongrass
+kaffir lime
+yuzu
+shiso
+nori
+wakame
+bonito flakes
+dashi
+gochujang
+doenjang
+szechuan pepper
+five spice
+star anise
+clove spice
+nutmeg
+mace spice
+juniper
+vermouth
+amaretto
+limoncello
+sake
+soju
+mezcal
+grappa
+calvados
+armagnac

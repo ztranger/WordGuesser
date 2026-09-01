@@ -39,3 +39,45 @@ Scheherazade
 Rumi
 Omar Khayyam
 Avicenna
+Herodotus
+Thucydides
+Tacitus
+Plutarch
+Seneca
+Cicero
+Marcus Aurelius
+Augustine
+Aquinas
+Erasmus
+Montaigne
+Pascal
+Spinoza
+Leibniz
+Hume
+Kant
+Hegel
+Schopenhauer
+Nietzsche
+Kierkegaard
+Heidegger
+Wittgenstein
+Arendt
+Foucault
+Derrida
+Deleuze
+Plotinus
+Epictetus
+Livy
+Suetonius
+Occam
+Anselm
+Abelard
+Husserl
+Adorno
+Benjamin critic
+Levinas
+Ricoeur
+Merleau-Ponty
+Sartre
+Camus
+Beauvoir

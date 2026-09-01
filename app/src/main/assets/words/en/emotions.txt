@@ -40,3 +40,44 @@ tenderness
 compassion
 awe
 delight
+bliss
+serenity
+contentment
+amusement
+mirth
+glee
+elation
+enthusiasm
+zeal
+passion
+affection
+fondness
+warmth
+longing
+melancholy
+sorrow
+grief
+heartbreak
+regret
+remorse
+dread
+unease
+nervousness
+irritation
+annoyance
+resentment
+bitterness
+indifference
+exhilaration
+yearning
+schadenfreude
+homesickness
+wanderlust
+awe struck
+restlessness
+listlessness
+wistfulness
+anticipation
+relief after fear
+butterflies in stomach
+FOMO

@@ -40,3 +40,43 @@ light-year
 nebula
 supernova
 quasar
+Mercury
+Uranus
+Neptune
+Pluto
+moon landing
+Apollo
+Soyuz
+Gagarin's flight
+ISS
+Baikonur
+Cape Canaveral
+mission control
+spacewalk
+airlock
+docking
+reentry
+heat shield
+rover
+probe
+lander
+Hubble
+James Webb
+radio telescope
+observatory
+planetarium
+astronomical unit
+parsec
+exoplanet
+module
+orbiter
+Kuiper belt
+Oort cloud
+solar wind
+sunspot
+solar flare
+red dwarf
+white dwarf
+neutron star
+pulsar
+magnetar
