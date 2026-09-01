@@ -6,7 +6,6 @@ import android.media.AudioTrack
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.math.sin
@@ -21,10 +20,7 @@ class TimerSounds {
     }
 
     fun playRoundEnd() {
-        scope.launch {
-            playTone(523.25, durationMs = 110, amplitude = 0.48)
-            playTone(392.00, durationMs = 240, amplitude = 0.52)
-        }
+        scope.launch { playSteamHorn() }
     }
 
     fun release() {
@@ -32,7 +28,7 @@ class TimerSounds {
     }
 
     private suspend fun playTone(frequencyHz: Double, durationMs: Int, amplitude: Double) {
-        val sampleRate = 22050
+        val sampleRate = SAMPLE_RATE
         val count = sampleRate * durationMs / 1000
         if (count <= 0) return
         val samples = ShortArray(count)
@@ -48,6 +44,52 @@ class TimerSounds {
                 .coerceIn(Short.MIN_VALUE.toInt(), Short.MAX_VALUE.toInt())
                 .toShort()
         }
+        playPcm(samples, sampleRate, durationMs)
+    }
+
+    /**
+     * Low steam-whistle blast: odd-heavy harmonics, slow swell, slight pitch scoop.
+     * About twice as long as the old two-tone end cue (~350 ms).
+     */
+    private suspend fun playSteamHorn() {
+        val sampleRate = SAMPLE_RATE
+        val durationMs = 720
+        val count = sampleRate * durationMs / 1000
+        val samples = ShortArray(count)
+        val attack = (sampleRate * 0.10).toInt()
+        val release = (sampleRate * 0.20).toInt()
+        val fundamental = 146.83
+        var phase = 0.0
+        for (i in 0 until count) {
+            val t = i.toDouble() / sampleRate
+            val pitch = if (i < attack) {
+                0.93 + 0.07 * smoothstep(i.toDouble() / attack)
+            } else {
+                1.0
+            }
+            phase += TWO_PI * fundamental * pitch / sampleRate
+            val wave = (
+                0.50 * sin(phase) +
+                    0.72 * sin(phase * 2) +
+                    0.95 * sin(phase * 3) +
+                    0.30 * sin(phase * 4) +
+                    0.48 * sin(phase * 5.01) +
+                    0.16 * sin(phase * 6) +
+                    0.28 * sin(phase * 7)
+                ) / 3.39
+            var envelope = 1.0
+            if (i < attack) envelope = smoothstep(i.toDouble() / attack)
+            val tail = count - 1 - i
+            if (tail < release) envelope *= smoothstep(tail.toDouble() / release)
+            envelope *= 0.90 + 0.10 * sin(TWO_PI * 4.8 * t)
+            samples[i] = (wave * 0.62 * envelope * Short.MAX_VALUE).toInt()
+                .coerceIn(Short.MIN_VALUE.toInt(), Short.MAX_VALUE.toInt())
+                .toShort()
+        }
+        playPcm(samples, sampleRate, durationMs)
+    }
+
+    private suspend fun playPcm(samples: ShortArray, sampleRate: Int, durationMs: Int) {
         val minBuffer = AudioTrack.getMinBufferSize(
             sampleRate,
             AudioFormat.CHANNEL_OUT_MONO,
@@ -69,7 +111,7 @@ class TimerSounds {
                         .setChannelMask(AudioFormat.CHANNEL_OUT_MONO)
                         .build()
                 )
-                .setBufferSizeInBytes((count * 2).coerceAtLeast(minBuffer))
+                .setBufferSizeInBytes((samples.size * 2).coerceAtLeast(minBuffer))
                 .setTransferMode(AudioTrack.MODE_STATIC)
                 .build()
         } catch (_: RuntimeException) {
@@ -90,6 +132,12 @@ class TimerSounds {
     }
 
     private companion object {
+        const val SAMPLE_RATE = 22050
         const val TWO_PI = Math.PI * 2.0
+
+        fun smoothstep(x: Double): Double {
+            val t = x.coerceIn(0.0, 1.0)
+            return t * t * (3.0 - 2.0 * t)
+        }
     }
 }
