@@ -1,0 +1,44 @@
+# Harry Potter · Easy
+# One word per line. Lines starting with # are ignored.
+Harry Potter
+Hermione Granger
+Ron Weasley
+Albus Dumbledore
+Lord Voldemort
+Severus Snape
+Rubeus Hagrid
+Draco Malfoy
+Minerva McGonagall
+Ginny Weasley
+Neville Longbottom
+Fred Weasley
+George Weasley
+Hogwarts
+Gryffindor
+Slytherin
+Hufflepuff
+Ravenclaw
+wand
+broomstick
+Hedwig
+Dobby
+wizard
+spell
+potion
+dragon
+invisibility cloak
+Sorting Hat
+Golden Snitch
+Quidditch
+lightning scar
+round glasses
+Platform 9¾
+Diagon Alley
+Great Hall
+Forbidden Forest
+dementor
+Patronus
+Philosopher's Stone
+chocolate frog
+butterbeer
+owl post

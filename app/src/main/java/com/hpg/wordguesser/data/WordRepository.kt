@@ -26,6 +26,7 @@ class WordRepository(private val context: Context) {
             if (!dest.exists()) {
                 copyFromAssets(language, category.fileName, dest)
             } else {
+                applyWordFixes(dest)
                 mergeNewWordsFromAssets(language, category.fileName, dest)
             }
         }
@@ -96,6 +97,18 @@ class WordRepository(private val context: Context) {
         }
     }
 
+    private fun applyWordFixes(file: File) {
+        if (!file.exists()) return
+        val original = file.readText()
+        var updated = original
+        for ((from, to) in WORD_FIXES) {
+            updated = updated.replace(from, to)
+        }
+        if (updated != original) {
+            file.writeText(updated)
+        }
+    }
+
     private fun readAssetLines(language: AppLanguage, fileName: String): List<String> =
         context.assets.open(assetPath(language, fileName)).bufferedReader().use { it.readLines() }
 
@@ -119,6 +132,11 @@ class WordRepository(private val context: Context) {
         const val WORDS_DIR = "words"
         const val ASSETS_DIR = "words"
 
+        private val WORD_FIXES = mapOf(
+            "тестрал" to "фестрал",
+            "Ровена Когтевран" to "Кандида Когтевран"
+        )
+
         val definitions: List<CategoryDefinition> = buildList {
             addAll(split("animals"))
             addAll(split("food"))
@@ -131,6 +149,7 @@ class WordRepository(private val context: Context) {
             addAll(split("cities"))
             addAll(split("music"))
             addAll(split("people"))
+            addAll(split("harry_potter"))
             add(CategoryDefinition("transport"))
             add(CategoryDefinition("clothes"))
             add(CategoryDefinition("fairy_tales"))

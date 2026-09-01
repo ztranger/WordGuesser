@@ -45,7 +45,8 @@ class GameStringsTest {
     @Test
     fun englishCopyAndCategories() {
         val strings = GameStrings.forLanguage(AppLanguage.English)
-        assertEquals("Animals", strings.categoryTitle("animals"))
+        assertEquals("Harry Potter", strings.topicTitle("harry_potter"))
+        assertEquals("Harry Potter · Easy", strings.categoryTitle("harry_potter", WordDifficulty.Easy))
         assertEquals("Animals · Easy", strings.categoryTitle("animals", WordDifficulty.Easy))
         assertEquals("Easy", strings.difficultyLabel(WordDifficulty.Easy))
         assertEquals("More", strings.categoryTabLabel(CategoryTab.Other))
@@ -72,6 +73,7 @@ class GameStringsTest {
         assertEquals("+5 очков за раунд", strings.roundPoints(5))
         assertEquals("+21 очко за раунд", strings.roundPoints(21))
         assertEquals("До победы: 20 слов", strings.playUntilWords(20))
+        assertEquals("Гарри Поттер · Простые", strings.categoryTitle("harry_potter", WordDifficulty.Easy))
         assertEquals("Животные · Простые", strings.categoryTitle("animals", WordDifficulty.Easy))
         assertEquals("Сложные", strings.difficultyLabel(WordDifficulty.Hard))
         assertEquals("Города и страны", strings.topicTitle("cities"))
@@ -91,7 +93,7 @@ class GameStringsTest {
             assertNotEquals(definition.topicId, en.topicTitle(definition.topicId))
             assertNotEquals(definition.topicId, ru.topicTitle(definition.topicId))
         }
-        assertEquals(42, WordRepository.definitions.size)
-        assertEquals(42, WordRepository.knownCategoryIds.size)
+        assertEquals(45, WordRepository.definitions.size)
+        assertEquals(45, WordRepository.knownCategoryIds.size)
     }
 }

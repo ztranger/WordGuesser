@@ -53,6 +53,9 @@ TITLES = {
     ("people", "easy"): ("Famous people · Easy", "Знаменитости · Простые"),
     ("people", "medium"): ("Famous people · Medium", "Знаменитости · Средние"),
     ("people", "hard"): ("Famous people · Hard", "Знаменитости · Сложные"),
+    ("harry_potter", "easy"): ("Harry Potter · Easy", "Гарри Поттер · Простые"),
+    ("harry_potter", "medium"): ("Harry Potter · Medium", "Гарри Поттер · Средние"),
+    ("harry_potter", "hard"): ("Harry Potter · Hard", "Гарри Поттер · Сложные"),
     ("transport", None): ("Transport", "Транспорт"),
     ("clothes", None): ("Clothes", "Одежда"),
     ("fairy_tales", None): ("Fairy tales", "Сказки"),
@@ -1679,6 +1682,168 @@ Scheherazade|Шехерезада
 Rumi|Руми
 Omar Khayyam|Омар Хайям
 Avicenna|Авиценна
+    """),
+    ("harry_potter", "easy"): pairs("""
+Harry Potter|Гарри Поттер
+Hermione Granger|Гермиона Грейнджер
+Ron Weasley|Рон Уизли
+Albus Dumbledore|Альбус Дамблдор
+Lord Voldemort|Волан-де-Морт
+Severus Snape|Северус Снегг
+Rubeus Hagrid|Рубеус Хагрид
+Draco Malfoy|Драко Малфой
+Minerva McGonagall|Минерва Макгонагалл
+Ginny Weasley|Джинни Уизли
+Neville Longbottom|Невилл Долгопупс
+Fred Weasley|Фред Уизли
+George Weasley|Джордж Уизли
+Hogwarts|Хогвартс
+Gryffindor|Гриффиндор
+Slytherin|Слизерин
+Hufflepuff|Пуффендуй
+Ravenclaw|Когтевран
+wand|волшебная палочка
+broomstick|метла
+Hedwig|Букля
+Dobby|Добби
+wizard|волшебник
+spell|заклинание
+potion|зелье
+dragon|дракон
+invisibility cloak|мантия-невидимка
+Sorting Hat|Распределяющая шляпа
+Golden Snitch|золотой снитч
+Quidditch|квиддич
+lightning scar|шрам-молния
+round glasses|круглые очки
+Platform 9¾|платформа 9¾
+Diagon Alley|Косой переулок
+Great Hall|Большой зал
+Forbidden Forest|Запретный лес
+dementor|дементор
+Patronus|патронус
+Philosopher's Stone|философский камень
+chocolate frog|шоколадная лягушка
+butterbeer|сливочное пиво
+owl post|совиная почта
+    """),
+    ("harry_potter", "medium"): pairs("""
+Luna Lovegood|Полумна Лавгуд
+Sirius Black|Сириус Блэк
+Remus Lupin|Римус Люпин
+Nymphadora Tonks|Нимфадора Тонкс
+Bellatrix Lestrange|Беллатриса Лестрейндж
+Lucius Malfoy|Люциус Малфой
+Dolores Umbridge|Долорес Амбридж
+Mad-Eye Moody|Грозный Глаз Грюм
+Cedric Diggory|Седрик Диггори
+Cho Chang|Чжоу Чанг
+Viktor Krum|Виктор Крам
+Fleur Delacour|Флёр Делакур
+Gilderoy Lockhart|Златопуст Локонс
+Rita Skeeter|Рита Скитер
+Molly Weasley|Молли Уизли
+Arthur Weasley|Артур Уизли
+Dumbledore's Army|Отряд Дамблдора
+Order of the Phoenix|Орден Феникса
+Death Eaters|Пожиратели смерти
+Horcrux|крестраж
+Marauder's Map|карта мародёров
+Room of Requirement|Выручай-комната
+Chamber of Secrets|Тайная комната
+Whomping Willow|Гремучая ива
+Azkaban|Азкабан
+Hogsmeade|Хогсмид
+The Burrow|Нора
+Gringotts|Гринготтс
+Polyjuice Potion|Оборотное зелье
+Time-Turner|маховик времени
+Howler|воющая грамота
+house-elf|эльф-домовик
+hippogriff|гиппогриф
+basilisk|василиск
+Fawkes|Фоукс
+Buckbeak|Клювокрыл
+Fluffy|Пушок
+Nimbus 2000|Нимбус-2000
+Firebolt|Молния
+Expelliarmus|Экспеллиармус
+Expecto Patronum|Экспекто Патронум
+Avada Kedavra|Авада Кедавра
+Wingardium Leviosa|Вингардиум Левиоса
+Lumos|Люмос
+Accio|Акцио
+Goblet of Fire|Кубок огня
+Triwizard Tournament|Турнир Трёх Волшебников
+Leaky Cauldron|Дырявый котёл
+Mirror of Erised|зеркало Еиналеж
+Pensieve|Омут памяти
+Sword of Gryffindor|меч Гриффиндора
+Dark Mark|Чёрная метка
+Parseltongue|змеиный язык
+animagus|анимаг
+auror|аврор
+boggart|боггарт
+    """),
+    ("harry_potter", "hard"): pairs("""
+Kreacher|Кикимер
+Aberforth Dumbledore|Аберфорт Дамблдор
+Gellert Grindelwald|Геллерт Грин-де-Вальд
+Xenophilius Lovegood|Ксенофилиус Лавгуд
+Regulus Black|Регулус Блэк
+Narcissa Malfoy|Нарцисса Малфой
+Fenrir Greyback|Фенрир Сивый
+Horace Slughorn|Гораций Слизнорт
+Sybill Trelawney|Сивилла Трелони
+Pomona Sprout|Помона Стебль
+Filius Flitwick|Филиус Флитвик
+Argus Filch|Аргус Филч
+Nearly Headless Nick|Почти Безголовый Ник
+Moaning Myrtle|Плакса Миртл
+Peeves|Пивз
+Ollivander|Олливандер
+Deathly Hallows|Дары Смерти
+Elder Wand|бузинная палочка
+Resurrection Stone|камень воскрешения
+Felix Felicis|Феликс Фелицис
+Veritaserum|сыворотка правды
+Amortentia|Амортенция
+Occlumency|окклюменция
+Legilimency|легилименция
+Sectumsempra|Сектумсемпра
+Tom Riddle|Том Реддл
+Godric's Hollow|Годрикова впадина
+Grimmauld Place|площадь Гриммо
+Knockturn Alley|Лютный переулок
+Shrieking Shack|Визжащая хижина
+Department of Mysteries|Отдел тайн
+Inferi|инфернал
+thestral|фестрал
+Aragog|Арагог
+Hungarian Horntail|венгерская хвосторога
+Beauxbatons|Шармбатон
+Durmstrang|Дурмстранг
+Godric Gryffindor|Годрик Гриффиндор
+Salazar Slytherin|Салазар Слизерин
+Helga Hufflepuff|Хельга Пуффендуй
+Rowena Ravenclaw|Кандида Когтевран
+Vanishing Cabinet|исчезательный шкаф
+portkey|портключ
+apparition|трансгрессия
+Floo powder|летучий порошок
+Knight Bus|Ночной рыцарь
+Deluminator|Гаситель
+Gillyweed|жабросли
+mandrake|мандрагора
+bezoar|безоар
+Petrificus Totalus|Петрификус Тоталус
+Riddikulus|Ридикулус
+Imperio|Империо
+Crucio|Круцио
+Padfoot|Бродяга
+Prongs|Рогач
+Moony|Лунатик
+Wormtail|Хвост
     """),
     ("transport", None): pairs("""
 car|машина

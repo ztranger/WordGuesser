@@ -1,0 +1,60 @@
+# Harry Potter · Hard
+# One word per line. Lines starting with # are ignored.
+Kreacher
+Aberforth Dumbledore
+Gellert Grindelwald
+Xenophilius Lovegood
+Regulus Black
+Narcissa Malfoy
+Fenrir Greyback
+Horace Slughorn
+Sybill Trelawney
+Pomona Sprout
+Filius Flitwick
+Argus Filch
+Nearly Headless Nick
+Moaning Myrtle
+Peeves
+Ollivander
+Deathly Hallows
+Elder Wand
+Resurrection Stone
+Felix Felicis
+Veritaserum
+Amortentia
+Occlumency
+Legilimency
+Sectumsempra
+Tom Riddle
+Godric's Hollow
+Grimmauld Place
+Knockturn Alley
+Shrieking Shack
+Department of Mysteries
+Inferi
+thestral
+Aragog
+Hungarian Horntail
+Beauxbatons
+Durmstrang
+Godric Gryffindor
+Salazar Slytherin
+Helga Hufflepuff
+Rowena Ravenclaw
+Vanishing Cabinet
+portkey
+apparition
+Floo powder
+Knight Bus
+Deluminator
+Gillyweed
+mandrake
+bezoar
+Petrificus Totalus
+Riddikulus
+Imperio
+Crucio
+Padfoot
+Prongs
+Moony
+Wormtail

@@ -1,0 +1,58 @@
+# Harry Potter · Medium
+# One word per line. Lines starting with # are ignored.
+Luna Lovegood
+Sirius Black
+Remus Lupin
+Nymphadora Tonks
+Bellatrix Lestrange
+Lucius Malfoy
+Dolores Umbridge
+Mad-Eye Moody
+Cedric Diggory
+Cho Chang
+Viktor Krum
+Fleur Delacour
+Gilderoy Lockhart
+Rita Skeeter
+Molly Weasley
+Arthur Weasley
+Dumbledore's Army
+Order of the Phoenix
+Death Eaters
+Horcrux
+Marauder's Map
+Room of Requirement
+Chamber of Secrets
+Whomping Willow
+Azkaban
+Hogsmeade
+The Burrow
+Gringotts
+Polyjuice Potion
+Time-Turner
+Howler
+house-elf
+hippogriff
+basilisk
+Fawkes
+Buckbeak
+Fluffy
+Nimbus 2000
+Firebolt
+Expelliarmus
+Expecto Patronum
+Avada Kedavra
+Wingardium Leviosa
+Lumos
+Accio
+Goblet of Fire
+Triwizard Tournament
+Leaky Cauldron
+Mirror of Erised
+Pensieve
+Sword of Gryffindor
+Dark Mark
+Parseltongue
+animagus
+auror
+boggart
